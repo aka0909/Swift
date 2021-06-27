@@ -5,11 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOME</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="home_style.css">
+    <!-- <a href='https://www.freepik.com/free-photos-vectors/people'>People vector created by pch.vector - www.freepik.com</a> -->
+    <!-- <a href='https://www.freepik.com/free-photos-vectors/technology'>Technology vector created by freepik - www.freepik.com</a> -->
+    <!-- <a href='https://www.freepik.com/free-photos-vectors/technology'>Technology vector created by freepik - www.freepik.com</a> -->
+    <script src="home.js" defer></script>
 </head>
 <body>
-    <h1>HOME</h1>
-    <button>
-        <a href="/create-room/">Create Room</a>
-    </button>    
+    <!-- <img src="./imgs/project1.jpg" id="Video-call"> -->
+    <div class="banner">
+        <div id="About">
+            <div id='title'><h1>LORA</h1></div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid perferendis vitae, quo, voluptates ducimus enim necessitatibus
+             harum aut rem totam maxime fugiat, et ratione consectetur quasi unde inventore! Eius, vero.</p>      
+             <button class="btn btn-primary">Get Started</button>   
+        </div>
+        <div id="couple-vc">
+            <img src="./imgs/project1.jpg" id="Video-call">
+        </div>
+    </div>
+    <div class="banner" id="features-panel">
+        <div id="friend-vc">
+            <img src="./imgs/friends-vc-2.jpg" id="Video-call-2">
+        </div>
+        <div id="Features">
+            <div id='title'><h1>Features</h1></div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid perferendis vitae, quo, voluptates ducimus enim necessitatibus
+             harum aut rem totam maxime fugiat, et ratione consectetur quasi unde inventore! Eius, vero.</p>      
+        </div>
+        
+    </div> 
+
+    <section>
+        <!-- <h1>HOME</h1> -->
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+        <div class="wave wave3"></div>
+        <div class="wave wave4"></div>
+    </section>   
 </body>
 </html>
+
+<!-- <div class="card" style="width: 20rem;">
+    <img class="card-img-top" src="./imgs/friends-vc-2.jpg" alt="Card image cap">
+    <div class="card-body" id="call-details">
+      <p class="card-title">START MEETING <span> <button  class="btn btn-primary" id="create-room"><a href="/create-room/">Create Room</a></button></span></p>
+      <p class="card-title">JOIN MEETING</p>
+      <p class="card-text"><input type="text" placeholder="Enter room link" id="roomlink-input"></p>
+      <button class="btn btn-primary" onclick="getLink()">Join Call</button>
+    </div>
+</div> -->

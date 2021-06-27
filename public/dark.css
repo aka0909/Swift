@@ -157,7 +157,7 @@ video{
 .chat-area{
     flex:0.25;
     /* background-color: #313535; */
-    background-color: #BCCCDC;
+    background-color: #486581;
     min-height: 90vh;
     margin: 20px;
     /* margin-left:100px;
@@ -177,19 +177,19 @@ video{
 .header{
     padding: 10 px,0px;
     /* background-color: #00b4d8; */
-    background-color: #486581;
+    color: #486581;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
     display:flex;
     justify-content: center;
     align-items: center;
-    color: #F0F4F8;
+    background-color: #F0F4F8;
     border-radius: 5px;
 }
 
 #chat-window{
     display:flex;
     flex-grow:1;
-    color: #102A43;
+    color: #F0F4F8;;
     flex-direction: column;
     padding: 10px;
     height:80vh;
@@ -203,23 +203,24 @@ video{
 #send-container{
     display:flex;
     padding: 10px;
-    background-color: #486581;
+    background-color: #F0F4F8;
+    /* background-color: #486581; */
     border-radius: 10px;
 }
 #message-input{
     flex-grow: 1;
     background-color: transparent;
     border: none;
-    color: #F5F5F5;
+    color: #102A43;
 }
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: #BCCCDC;
+    color: #486581;
     opacity: 1; /* Firefox */
   }
 
 #send-button{
-    background-color: #F0F4F8;;
-    color: #243B53;
+    color: #F0F4F8;
+    background-color: #243B53;
     border: none;
     border-radius: 4px;
     padding: 8px;
