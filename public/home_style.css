@@ -1,15 +1,23 @@
-*{
+body{
     margin: 0;
     padding: 0;
-    
-    /* background-color: #D9E2EC; */
 }
+
+.canvas{
+    display:flex;
+    flex-direction: column;
+}
+
+/* ==============================================================WAVES CSS=============================================================== */
 
 section{
     position: relative;
     width: 100%;
-    height: 20vh;
-    background-color: #3586ff;
+    height: 40vh;
+    background: #00c6ff;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0072ff, #00c6ff);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0072ff, #00c6ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -77,126 +85,117 @@ section .wave.wave4{
         background-position-x: -1000px;
     }
 }
+/* =========================================================BANNER-1-STYLING======================================================================== */
+
 .banner{
     display:flex;
     flex-grow: 1;
     justify-content:space-between;
-    align-items: center;
-    background-color: #3586ff;
+    height:100vh;
+    background: #00c6ff;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0072ff, #00c6ff);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0072ff, #00c6ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 #couple-vc{
-    background-color: white;
-    margin-right: none;
+    background-color:white;
     display:flex;
-    flex:0.5;
-    flex-grow:1;
-    margin-right: none !important;
-    justify-content: center;
-    /* border-radius: 400px; */
-    border-top-left-radius: 150px 50%;
-    border-bottom-left-radius: 150px 50%;
-
+    flex:0.6;
+    flex-grow:0.6;
+    flex-direction: row-reverse;
+    width: 100vh;
+    height: 80vh;
+    border-top-right-radius:0;
+    border-top-left-radius:0;
+    border-bottom-right-radius:0;
+    border-bottom-left-radius:100%;
 }
 
 #Video-call{
-    max-width: 400;
-    /* border-radius: 400px; */
-    border-top-left-radius: 150px 50%;
-  border-bottom-left-radius: 150px 50%;
-    max-height: 300px;
-    object-fit: cover;
+    max-width: 80%;
+    max-height: 60%;
 }
 
-#friend-vc{
+#About{
+    flex:0.4;
+    flex-grow: 0.4;
+    margin-left: 20px;
+    margin-right: 10px;
+    margin-top: 30vh;
+    margin-bottom: 20px;
     display:flex;
-    flex:0.25;
-    flex-grow:0.5;
-    margin: 10px;
-    margin-left: none !important;
-    justify-content: center;
-    background-color: black;
+    flex-direction: column;
+    padding:10px;
+}
+
+/* =========================================================BANNER-2-STYLING======================================================================== */
+
+#friend-vc{
+
+    background-color:#e0fbfc;
+    display:flex;
+    flex:0.6;
+    flex-grow:0.6;
+    flex-direction: row;
+    align-items:center;
+    width: 100vh;
+    height: 95vh;
+    border-top-right-radius:0;
+    border-top-left-radius:0;
+    border-bottom-right-radius:0;
+    border-top-right-radius:100%;
 }
 
 #Video-call-2{
-
-    max-width: 300px;
-    max-height: 300px;
-    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 #Features{
-    display: flex;
-    flex-direction: column;
-    flex:0.75;
-    flex-grow: 1;
-}
-/* .card{
-    display:flex;
-    flex-direction: row !important;
-   
-   margin: 5px;
-    padding: 10px;
-    width:70% !important;
-}
-.card-body{
+    flex:0.4;
+    flex-grow: 0.4;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
     display:flex;
     flex-direction: column;
-    margin-top: 10%;
-    text-align: center;
+    padding:10px;
 }
+
+/* ==========================================================TEXT AND BUTTON STYLING=================================================================================== */
+
+
+#title,p{
+    color:white;
+}
+
 .btn-primary{
-    border-radius:100px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color:transparent;
+    color:white;
+    border-radius: 100px;
+    padding: 15px;
     transition: all .2s ease-in;
-    margin:5px;
+    border-color:white;
 }
 .btn-primary:hover{
     transform: translateY(-2px);
-}
-.card-title{
-    color: white;
-}
-#roomlink-input{
     border:none;
-    border-radius: 10px;
-    padding: 5px;
+    background-color: #48cae4
 }
 a{
     color:white;
 }
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-    outline: none;
-}
-#join-or-create{
-    background-color: #60a9ff;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    display:flex;
-    flex:0.5;
-    flex-grow: 1;
-    margin-left: 20px;
-    margin-right: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    height: 50vh;
-    
-} */
+a:hover {
+    color:white;
+    text-decoration: none;
+  }
 
-#About{
-    flex:0.5;
-    flex-grow: 1;
-    margin-left: 20px;
-    margin-right: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding:10px;
 
-}
+/* ==================================================================================================================================================== */
+
+  
+
+
+
+
+

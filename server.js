@@ -12,11 +12,16 @@ app.use(express.static('public'))
 app.get('/', (req, res) => {
   res.render('home')
 })
+app.get('/join-create',(req,res)=>{
+  res.render('join-create')
+})
+app.get("/get-started/",(req,res)=>{
+  res.redirect('/join-create')
+})
 
 app.get("/create-room/", (req, res) => {
     res.redirect(`/${uuidV4()}`);
   });
-  
 
 app.get('/:room', (req, res) => {
   res.render('room', { roomId: req.params.room })
