@@ -1,3 +1,11 @@
+
 # Video-Chat-App
 
-Progress sheet link: https://docs.google.com/spreadsheets/d/1QoKGWlqi-IsqC-wLYgVI5jm2G5WYAGnrwI3aXgPOc1Q/edit?usp=sharing
+## Progress sheet link:
+https://docs.google.com/spreadsheets/d/1QoKGWlqi-IsqC-wLYgVI5jm2G5WYAGnrwI3aXgPOc1Q/edit?usp=sharing
+
+## Use Case UML diagram:
+![Video Chat App Use Case UML (1)](https://user-images.githubusercontent.com/65956313/123850946-3d03fe80-d938-11eb-94d5-2aa91857cb2d.jpeg)
+
+## Video Demo (progress so far):
+https://drive.google.com/file/d/1wh3i7G72-0hOV9zT3SuAEsDerGXbWz7N/view?usp=sharing
