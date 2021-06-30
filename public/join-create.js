@@ -3,3 +3,4 @@ function getLink() {
     let room = url.split("/");
     window.open(room[3]);
   }
+  

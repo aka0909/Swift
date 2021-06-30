@@ -8,9 +8,9 @@ body{
     background-color:#60a9ff;
     display:flex;
     min-height:100vh;
-    flex-direction: column;
+    /* flex-direction: column; */
 }
-
+/* =================================================================CALL-OPTIONS-STYLING=========================================================== */
 .panel{
     background-color: white;
     border-radius: 10px;
@@ -99,6 +99,16 @@ background-color: #e1f1ff;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
+.message{
+    color:#016ff9;
+    display:block;
+    font-size:32 px;
+    font-weight: 700;
+    margin-top: 20px;
+}
+/* ============================================================END-OF-CALL-OPTIONS-STYLING=========================================================== */
+
+
 .icebreaker-container {
       margin-top: 0px;
       position: relative;
@@ -135,6 +145,7 @@ background-color: #e1f1ff;
 
     
     
+/* ============================================================MEDIA-QUERY==================================================================== */
     
 
 @media (min-width: 900px){
