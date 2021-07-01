@@ -12,8 +12,6 @@ let peersList=[]
 // =====================================================START OF VIDEO CALLING & CHAT SECTION============================================
 let myVideoStream;
 let mediaRecorder;
-// let cameraStream;
-
 
 const messageContainer = document.getElementById('chat-window')
 const messageForm = document.getElementById('send-container')
@@ -62,6 +60,8 @@ socket.on('user-disconnected', userId => {
   window.location.href = "/";
 })
 
+//SHARING OUR WHITEBOARD DATA
+
 socket.on('canvas-data',function(data){
   var image = new Image();
   var canvas =document.getElementById("can");
@@ -70,6 +70,15 @@ socket.on('canvas-data',function(data){
     ctx.drawImage(image,0,0);
   };
   image.src=data;
+})
+
+socket.on('whiteboard',function(){
+  let x = document.getElementById("white-board");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
 })
 
 myPeer.on('open', id => {
@@ -310,24 +319,21 @@ const stopScreenShare=()=>{
 //---------------------------------------------------------------------------------------------------------------------------------------
 
 //7. WhiteBoard
-// const whiteBoard=()=>{
-//   const whiteboard= document.createElement('div');
-//   whiteboard.style.width = "400px";
-//   whiteboard.style.height = "500px";
-//   whiteboard.style.background = "white";
-//   whiteboard.setAttribute('id', 'whiteboard');
-//   videoGrid.append(whiteboard);
-//   var customBoard = new DrawingBoard.Board('whiteboard', {
-//     background: "#ff7ffe",
-//     color: "#ff0",
-//     size: 30,
-//     controls: [
-//       { Size: { type: "range" } },
-//       { Navigation: { back: false, forward: false } },
-//       'DrawingMode'
-//     ],
-//     webStorage: 'local'
-//   });
+const WhiteBoard=()=>{
+  let x = document.getElementById("white-board");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+  socket.emit('whiteboard');
+}
 
-
-// }
+const MyWhiteBoard=()=>{
+  let x = document.getElementById("white-board");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}

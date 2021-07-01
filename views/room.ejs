@@ -40,7 +40,7 @@
             <div id="video-grid">
 
             </div>
-            <div id=color-options>
+            <!-- <div id=color-options>
                 <div style="width:20px;height:20px;background:green;" id="green" onclick="color(this)"></div>
                 <div style="width:20px;height:20px;background:blue;" id="blue" onclick="color(this)"></div>
                 <div style="width:20px;height:20px;background:red;" id="red" onclick="color(this)"></div>
@@ -48,37 +48,59 @@
                 <div style="width:20px;height:20px;background:orange;" id="orange" onclick="color(this)"></div>
                 <div style="width:20px;height:20px;background:black;" id="black" onclick="color(this)"></div>
                 <div style="width:20px;height:20px;background:white;" id="white" onclick="color(this)"></div>
-
-            </div>
-            <div>
-                <canvas id="can" width="600" height="300" style="border:2px solid;">    
-                    <!-- <img id="canvasimg" width="400" height="400" style="display:none;">                 -->
+            </div> -->
+            <div id="white-board" style="display:none">
+                <div id=color-options>
+                    <div style="display:flex;flex-grow:1;height:30px;background:green;" id="green" onclick="color(this)"></div>
+                    <!-- <div style="width:20px;height:20px;background:green;" id="green" onclick="color(this)"></div> -->
+                    <div style="display:flex;flex-grow:1;height:30px;background:blue;" id="blue" onclick="color(this)"></div>
+                    <!-- <div style="width:20px;height:20px;background:blue;" id="blue" onclick="color(this)"></div> -->
+                    <div style="display:flex;flex-grow:1;height:30px;background:red;" id="red" onclick="color(this)"></div>
+                    <!-- <div style="width:20px;height:20px;background:red;" id="red" onclick="color(this)"></div> -->
+                    <div style="display:flex;flex-grow:1;height:30px;background:yellow;" id="yellow" onclick="color(this)"></div>
+                    <!-- <div style="width:20px;height:20px;background:yellow;" id="yellow" onclick="color(this)"></div> -->
+                    <div style="display:flex;flex-grow:1;height:30px;background:orange;" id="orange" onclick="color(this)"></div>
+                    <!-- <div style="width:20px;height:20px;background:orange;" id="orange" onclick="color(this)"></div> -->
+                    <div style="display:flex;flex-grow:1;height:30px;background:black;" id="black" onclick="color(this)"></div>
+                    <!-- <div style="width:20px;height:20px;background:black;" id="black" onclick="color(this)"></div> -->
+                    <div style="display:flex;flex-grow:1;height:30px;background:white;" id="white" onclick="color(this)"></div>
+                    <!-- <div style="width:20px;height:20px;background:white;" id="white" onclick="color(this)"></div> -->
+                    <button onclick="erase()" id="clr" type="button" class="btn btn-info" style="padding-right: 5px;">Erase</button>
+                </div>
+                <canvas id="can" width="600" height="300" >   
                 </canvas>
-                <input type="button" value="clear" id="clr" size="23" onclick="erase()" style="position:absolute;top:55%;left:15%;">
+                <!-- <input type="button" value="clear" id="clr" size="23" onclick="erase()" style="position:absolute;top:55%;left:15%;"> -->
             </div>
         </div>
         <div class="controls">
             <div class="controls-block">
 
+                <div onclick="MyWhiteBoard()" class="controls-btn buttons whiteboard-button side-buttons">
+                    myWB
+                </div>
+
+                <div onclick="WhiteBoard()" class="controls-btn buttons whiteboard-button side-buttons">
+                    <img src="./imgs/whiteboard.png" alt="" style="width: 30px;height: 30px;">
+                </div>
 
                 <div onclick="ShareScreen()" class="controls-btn buttons share-button side-buttons">
-                    <i class="fas fa-share-square fa-lg"></i>
+                    <i class="fas fa-share-square "></i>
                 </div>
                 
                 <div onclick="muteUnmute()" class="controls-btn buttons mute-button side-buttons">
-                    <i class="fas fa-microphone fa-lg"></i>
+                    <i class="fas fa-microphone"></i>
                 </div>
 
                 <div onclick="onOff()" class="controls-btn buttons video-button side-buttons">
-                    <i class="fas fa-video fa-lg"></i>
+                    <i class="fas fa-video "></i>
                 </div>
 
                 <div onclick="endCall()" class="controls-btn buttons leave-button">
-                    <i class="fas fa-phone-slash fa-lg"></i>
+                    <i class="fas fa-phone-slash "></i>
                 </div>
 
                 <div onclick="getURL()" class="controls-btn buttons invite-button side-buttons">
-                    <i class="fas fa-plus-square fa-lg"></i>
+                    <i class="fas fa-plus-square"></i>
                 </div>
 
                 <div class="controls-btn buttons side-buttons">
@@ -86,7 +108,7 @@
                 </div>
 
                 <div class="controls-btn buttons side-buttons" id="download-button" onclick="Download()" >
-                    <i class="fas fa-download fa-lg"></i>
+                    <i class="fas fa-download "></i>
                 </div>
 
             </div>

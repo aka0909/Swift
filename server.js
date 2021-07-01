@@ -42,6 +42,10 @@ io.on('connection', socket => {
     socket.on('canvas-data',data=>{
       socket.to(roomId).emit('canvas-data',data);
     })
+
+    socket.on('whiteboard',()=>{
+      socket.to(roomId).emit('whiteboard');
+    })
     
     socket.on('disconnect', () => {
       socket.to(roomId).emit('user-disconnected', userId)
