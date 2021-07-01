@@ -16,13 +16,17 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="/socket.io/socket.io.js" defer></script>
+  <script src="https://webrtc.github.io/adapter/adapter-latest.js"defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/drawingboard.js/0.4.6/drawingboard.min.js" defer></script>
+
   <link rel="stylesheet" href="dark.css" id="theme-link">
   <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
   <script src="script.js" defer></script>
+  <script src="canvas.js"></script>
   <title>ROOM</title>
 </head>
-<body>
-  <div class="canvas">
+<body onload="init()">
+  <div class="canvass">
       <div class="call-area">
         <div class="mode-toggler">
             <input type="checkbox" class="checkbox" id="chk" />
@@ -36,9 +40,30 @@
             <div id="video-grid">
 
             </div>
+            <div id=color-options>
+                <div style="width:20px;height:20px;background:green;" id="green" onclick="color(this)"></div>
+                <div style="width:20px;height:20px;background:blue;" id="blue" onclick="color(this)"></div>
+                <div style="width:20px;height:20px;background:red;" id="red" onclick="color(this)"></div>
+                <div style="width:20px;height:20px;background:yellow;" id="yellow" onclick="color(this)"></div>
+                <div style="width:20px;height:20px;background:orange;" id="orange" onclick="color(this)"></div>
+                <div style="width:20px;height:20px;background:black;" id="black" onclick="color(this)"></div>
+                <div style="width:20px;height:20px;background:white;" id="white" onclick="color(this)"></div>
+
+            </div>
+            <div>
+                <canvas id="can" width="600" height="300" style="border:2px solid;">    
+                    <!-- <img id="canvasimg" width="400" height="400" style="display:none;">                 -->
+                </canvas>
+                <input type="button" value="clear" id="clr" size="23" onclick="erase()" style="position:absolute;top:55%;left:15%;">
+            </div>
         </div>
         <div class="controls">
             <div class="controls-block">
+
+
+                <div onclick="ShareScreen()" class="controls-btn buttons share-button side-buttons">
+                    <i class="fas fa-share-square fa-lg"></i>
+                </div>
                 
                 <div onclick="muteUnmute()" class="controls-btn buttons mute-button side-buttons">
                     <i class="fas fa-microphone fa-lg"></i>
@@ -54,6 +79,14 @@
 
                 <div onclick="getURL()" class="controls-btn buttons invite-button side-buttons">
                     <i class="fas fa-plus-square fa-lg"></i>
+                </div>
+
+                <div class="controls-btn buttons side-buttons">
+                    <button onclick="Record()" id="record-button">Record</button>
+                </div>
+
+                <div class="controls-btn buttons side-buttons" id="download-button" onclick="Download()" >
+                    <i class="fas fa-download fa-lg"></i>
                 </div>
 
             </div>
@@ -94,6 +127,19 @@
               }
             });
   </script>
+  <!-- <script>
+      let arr =["How about a small shoulder exercise now!",
+       "Time for water break!", ""]
+      function callfunction () {
+        alert("Drink water")
+    }
+      window.onload = function () {
+        setInterval(function () {
+        // Invoke function every 10 minutes
+         callfunction();
+        }, 5000);
+    } 
+  </script> -->
   <!-- -----------------------------------------------END OF MODE TOGGLER SCRIPT--------------------------------------------------------------- -->
   
 </body>

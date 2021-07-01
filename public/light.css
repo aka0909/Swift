@@ -2,7 +2,7 @@ body{
     margin:0;
     padding:0;
 }
-.canvas{
+.canvass{
     flex-grow: 1;
     min-height:100vh;
     display:flex;
@@ -230,7 +230,7 @@ video{
 
 @media (max-width: 991.98px) {
 
-    .canvas{
+    .canvass{
         width: 100%;
         flex-direction: column;
     }

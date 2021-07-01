@@ -2,7 +2,7 @@ body{
     margin:0;
     padding:0;
 }
-.canvas{
+.canvass{
     flex-grow: 1;
     min-height:100vh;
     display:flex;
@@ -10,6 +10,23 @@ body{
     /* background-color: rgb(27, 27, 27); */
     background-color: #102A43;
     
+}
+canvas{
+    background-color: white;
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+}
+
+#color-options{
+    display: flex;
+    flex-direction: row;
+    background-color: grey;
+    min-height: 20px;
+    min-width: 400px;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 /*--------------------------------------------------------VIDEO CALL AREA STYLING---------------------------------------------------------- */
@@ -31,6 +48,7 @@ body{
     display:flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 
@@ -231,7 +249,7 @@ video{
 
 @media (max-width: 991.98px) {
 
-    .canvas{
+    .canvass{
         width: 100%;
         flex-direction: column;
     }

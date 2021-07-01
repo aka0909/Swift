@@ -38,6 +38,10 @@ io.on('connection', socket => {
     socket.on('send-chat-message', message => {
         socket.to(roomId).emit('chat-message', { message: message, name: users[socket.id] })
       })
+
+    socket.on('canvas-data',data=>{
+      socket.to(roomId).emit('canvas-data',data);
+    })
     
     socket.on('disconnect', () => {
       socket.to(roomId).emit('user-disconnected', userId)
