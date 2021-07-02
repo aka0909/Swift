@@ -9,6 +9,7 @@ myVideo.muted = true //BECAUSE WE DO NOT WANT TO HEAR OUR OWN VOICE
 let currentPeer;
 const peers = {}
 let peersList=[]
+let userstreams=[]
 // =====================================================START OF VIDEO CALLING & CHAT SECTION============================================
 let myVideoStream;
 let mediaRecorder;
@@ -36,6 +37,7 @@ navigator.mediaDevices.getUserMedia({
 }).then(stream => {
   handleSuccess(stream);
   myVideoStream=stream;
+  userstreams.push(myVideoStream);
   addVideoStream(myVideo, stream); //ADDING OUR OWN VIDEO TO THE STREAM
 
   myPeer.on('call', call => {                           //ANSWERING CALL FROM THE OTHER USER TRYING TO CONNECT TO US
@@ -94,6 +96,7 @@ function connectToNewUser(userId, stream) {
   call.on('stream', userVideoStream => {
     addVideoStream(video, userVideoStream)
     // peers[userId] = call
+    userstreams.push(userVideoStream);
   })
   call.on('close', () => {
     video.remove()
@@ -243,25 +246,56 @@ function endCall() {
     // let chatroom = document.querySelector('body');
     // let canvas_stream = chatroom.captureStream(25);
     // chatroom.play();
-    try {
-      mediaRecorder = new MediaRecorder(window.stream, options);
-      // mediaRecorder = new MediaRecorder(canvas_stream, options);
-    } catch (e) {
-      console.error('Exception while creating MediaRecorder:', e);
-      // errorMsgElement.innerHTML = `Exception while creating MediaRecorder: ${JSON.stringify(e)}`;
-      return;
-    }
+    const getStreamForWindow = () => navigator.mediaDevices.getDisplayMedia({
+      video: {
+        cursor:"always"
+      },
+      audio:true
+    });
   
-    console.log('Created MediaRecorder', mediaRecorder, 'with options', options);
-    recordButton.textContent = 'Stop Record';
-    downloadButton.disabled = true;
-    mediaRecorder.onstop = (event) => {
-      console.log('Recorder stopped: ', event);
-      console.log('Recorded Blobs: ', recordedBlobs);
-    };
-    mediaRecorder.ondataavailable = handleDataAvailable;
-    mediaRecorder.start();
-    console.log('MediaRecorder started', mediaRecorder);
+    getStreamForWindow().then(streamWindow => {
+      let finalStream = new MediaStream();
+      const videoTrack = streamWindow.getVideoTracks()[0];
+      finalStream.addTrack(videoTrack);
+      userstreams.forEach(element => {
+        let userAudioTrack = element.getAudioTracks()[0];
+        finalStream.addTrack(userAudioTrack);
+      });
+      try{
+        mediaRecorder=new MediaRecorder(finalStream,options);
+      }catch(e){
+        console.error('Exception while creating MediaRecorder:', e);
+         return;
+      }
+      console.log('Created MediaRecorder', mediaRecorder, 'with options', options);
+      recordButton.textContent = 'Stop Record';
+      downloadButton.disabled = true;
+      mediaRecorder.onstop = (event) => {
+        console.log('Recorder stopped: ', event);
+        console.log('Recorded Blobs: ', recordedBlobs);
+      };
+      mediaRecorder.ondataavailable = handleDataAvailable;
+      mediaRecorder.start();
+      console.log('MediaRecorder started', mediaRecorder);
+    })
+    // try {
+    //   mediaRecorder = new MediaRecorder(window.stream, options);
+      
+    // } catch (e) {
+    //   console.error('Exception while creating MediaRecorder:', e);
+    //   return;
+    // }
+  
+    // console.log('Created MediaRecorder', mediaRecorder, 'with options', options);
+    // recordButton.textContent = 'Stop Record';
+    // downloadButton.disabled = true;
+    // mediaRecorder.onstop = (event) => {
+    //   console.log('Recorder stopped: ', event);
+    //   console.log('Recorded Blobs: ', recordedBlobs);
+    // };
+    // mediaRecorder.ondataavailable = handleDataAvailable;
+    // mediaRecorder.start();
+    // console.log('MediaRecorder started', mediaRecorder);
   }
   
   function stopRecording() {
