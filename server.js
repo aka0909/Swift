@@ -46,6 +46,10 @@ io.on('connection', socket => {
     socket.on('whiteboard',()=>{
       socket.to(roomId).emit('whiteboard');
     })
+
+    socket.on('record',()=>{
+      socket.to(roomId).emit('record');
+    })
     
     socket.on('disconnect', () => {
       socket.to(roomId).emit('user-disconnected', userId)

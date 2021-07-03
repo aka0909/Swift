@@ -6,6 +6,7 @@ var myPeer = new Peer(undefined, {
 })
 const myVideo = document.createElement('video')
 myVideo.muted = true //BECAUSE WE DO NOT WANT TO HEAR OUR OWN VOICE
+myVideo.setAttribute("controls","true")
 let currentPeer;
 const peers = {}
 let peersList=[]
@@ -43,6 +44,7 @@ navigator.mediaDevices.getUserMedia({
   myPeer.on('call', call => {                           //ANSWERING CALL FROM THE OTHER USER TRYING TO CONNECT TO US
     call.answer(stream)
     const video = document.createElement('video')
+    video.setAttribute("controls","true")
     call.on('stream', userVideoStream => {
       addVideoStream(video, userVideoStream)
     })
@@ -62,32 +64,13 @@ socket.on('user-disconnected', userId => {
   window.location.href = "/";
 })
 
-//SHARING OUR WHITEBOARD DATA
-
-socket.on('canvas-data',function(data){
-  var image = new Image();
-  var canvas =document.getElementById("can");
-  var ctx=canvas.getContext('2d');
-  image.onload=function(){
-    ctx.drawImage(image,0,0);
-  };
-  image.src=data;
-})
-
-socket.on('whiteboard',function(){
-  let x = document.getElementById("white-board");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-})
 
 myPeer.on('open', id => {
   const Name = prompt('What is your name?')
   appendMessage('You joined')
   socket.emit('join-room', ROOM_ID, id,Name)
 })
+
 //CONNECTING TO NEW USER
 
 function connectToNewUser(userId, stream) {
@@ -115,6 +98,8 @@ function addVideoStream(video, stream) {
   videoGrid.append(video)
 }
 
+//CHAT BOX DATA HANDLING
+
 messageForm.addEventListener('submit', e => {
     e.preventDefault()
     const message = messageInput.value
@@ -126,7 +111,7 @@ messageForm.addEventListener('submit', e => {
   socket.on('chat-message', data => {
     appendMessage(`${data.name}: ${data.message}`)
   })
-
+  
 
 // ===========================================================END OF VIDEO CALLING AND CHAT SECTIONS===========================================
 
@@ -146,14 +131,14 @@ const muteUnmute = () => {
 
   const setMuteButton = () => {
     const html = `
-      <i class="fas fa-microphone fa-lg"></i>
+      <i class="fas fa-microphone"></i>
     `
     document.querySelector('.mute-button').innerHTML = html;
   }
   
   const setUnmuteButton = () => {
     const html = `
-      <i class="unmute fas fa-microphone-slash fa-lg"></i>
+      <i class="unmute fas fa-microphone-slash"></i>
     `
     document.querySelector('.mute-button').innerHTML = html;
   }
@@ -176,14 +161,14 @@ const onOff = () => {
 
   const setStopVideo = () => {
     const html = `
-      <i class="fas fa-video fa-lg"></i>
+      <i class="fas fa-video"></i>
     `
     document.querySelector('.video-button').innerHTML = html;
   }
   
   const setPlayVideo = () => {
     const html = `
-    <i class="stop fas fa-video-slash fa-lg"></i>
+    <i class="stop fas fa-video-slash"></i>
     `
     document.querySelector('.video-button').innerHTML = html;
   }
@@ -214,19 +199,18 @@ function endCall() {
     window.location.href = "/";
   }
 //---------------------------------------------------------------------------------------------------------------------------------------
-// const getStreamForScreen = () => navigator.mediaDevices.getUserMedia({
-//   video: {
-//     mediaSource: 'screen'
-//   }
-// });
 
-//---------------------------------------------------------------------------------------------------------------------------------------
 
 //5.Record Video and Download
+
+  socket.on('record',()=>{
+    alert("This meeting is now being recorded");
+  })
 
   function Record() {
     if (recordButton.textContent === 'Record') {
       startRecording();
+      socket.emit('record');
     } else {
       stopRecording();
       recordButton.textContent = 'Record';
@@ -243,24 +227,24 @@ function endCall() {
   function startRecording() {
     recordedBlobs = [];
     const options = { mimeType: "video/webm; codecs=vp9" };
-    // let chatroom = document.querySelector('body');
-    // let canvas_stream = chatroom.captureStream(25);
-    // chatroom.play();
     const getStreamForWindow = () => navigator.mediaDevices.getDisplayMedia({
       video: {
         cursor:"always"
       },
-      audio:true
     });
-  
+
+    const getStreamForCamera = () => navigator.mediaDevices.getUserMedia({
+      audio: true
+   });
+
+   getStreamForCamera().then(streamCamera=>{
+
     getStreamForWindow().then(streamWindow => {
       let finalStream = new MediaStream();
       const videoTrack = streamWindow.getVideoTracks()[0];
       finalStream.addTrack(videoTrack);
-      userstreams.forEach(element => {
-        let userAudioTrack = element.getAudioTracks()[0];
-        finalStream.addTrack(userAudioTrack);
-      });
+      const audioTrack = streamCamera.getAudioTracks()[0];
+      finalStream.addTrack(audioTrack);
       try{
         mediaRecorder=new MediaRecorder(finalStream,options);
       }catch(e){
@@ -278,24 +262,9 @@ function endCall() {
       mediaRecorder.start();
       console.log('MediaRecorder started', mediaRecorder);
     })
-    // try {
-    //   mediaRecorder = new MediaRecorder(window.stream, options);
-      
-    // } catch (e) {
-    //   console.error('Exception while creating MediaRecorder:', e);
-    //   return;
-    // }
+
+   })
   
-    // console.log('Created MediaRecorder', mediaRecorder, 'with options', options);
-    // recordButton.textContent = 'Stop Record';
-    // downloadButton.disabled = true;
-    // mediaRecorder.onstop = (event) => {
-    //   console.log('Recorder stopped: ', event);
-    //   console.log('Recorded Blobs: ', recordedBlobs);
-    // };
-    // mediaRecorder.ondataavailable = handleDataAvailable;
-    // mediaRecorder.start();
-    // console.log('MediaRecorder started', mediaRecorder);
   }
   
   function stopRecording() {
@@ -353,6 +322,25 @@ const stopScreenShare=()=>{
 //---------------------------------------------------------------------------------------------------------------------------------------
 
 //7. WhiteBoard
+socket.on('canvas-data',function(data){
+  var image = new Image();
+  var canvas =document.getElementById("can");
+  var ctx=canvas.getContext('2d');
+  image.onload=function(){
+    ctx.drawImage(image,0,0);
+  };
+  image.src=data;
+})
+
+socket.on('whiteboard',function(){
+  let x = document.getElementById("white-board");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+})
+
 const WhiteBoard=()=>{
   let x = document.getElementById("white-board");
   if (x.style.display === "none") {
@@ -371,3 +359,5 @@ const MyWhiteBoard=()=>{
     x.style.display = "none";
   }
 }
+//---------------------------------------------------------------------------------------------------------------------------------------
+

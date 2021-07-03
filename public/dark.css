@@ -124,6 +124,13 @@ video{
     min-width: 50px !important;
 }
 
+#record-button{
+    color: rgb(197, 60, 60)!important;
+    min-width: 50px !important;
+    border:none !important;
+    background: transparent;
+}
+
 
 
 /* ================================================1) TOGGLER STYLING=================================================================== */
@@ -271,3 +278,5 @@ video{
         flex-direction: column;
     }
 }
+
+
