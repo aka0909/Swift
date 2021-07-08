@@ -46,10 +46,16 @@ canvas{
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2); */
  }
  
-.mode-toggler{
+ .togglers{
     display:flex;
     margin:20px;
+    justify-content: space-between;
 }
+.meet-options-togglers{
+    display:flex;
+    flex-direction: row;
+}
+
 .videos{
     flex-grow: 1;
     display:flex;
@@ -187,7 +193,7 @@ video{
 /* ------------------------------------------------CHAT AREA STYLING--------------------------------------------------------------- */
 
 .chat-area{
-    flex:0.25;
+    flex:0.8;
     /* background-color: #313535; */
     background-color: #BCCCDC;
     min-height: 90vh;
@@ -256,6 +262,25 @@ video{
     border-radius: 4px;
     padding: 8px;
     cursor: pointer;
+}
+
+.only-call-chat-div{
+    display:flex;
+    height: 30px;
+    margin-top: 10px;
+}
+.endMeet-button{
+    border-radius: 10px !important;
+    margin-top:0px !important;
+}
+.startMeet-button{
+    border-radius: 10px !important;
+    margin-top:0px !important;
+}
+.mode-toggler-only-chat{
+    display:flex;
+    margin-top:20px;
+
 }
 
 /* ================================================================================================================================================ */

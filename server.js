@@ -2,12 +2,15 @@ const express = require('express')
 const app = express()
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
+const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
 const { v4: uuidV4 } = require('uuid')
 
 
 
 app.set('view engine', 'ejs') 
 app.use(express.static('public'))
+
 
 app.get('/', (req, res) => {
   res.render('home')
@@ -27,6 +30,8 @@ app.get('/:room', (req, res) => {
   res.render('room', { roomId: req.params.room })
 })
 
+
+
 const users = {}
 
 io.on('connection', socket => {
@@ -43,12 +48,24 @@ io.on('connection', socket => {
       socket.to(roomId).emit('canvas-data',data);
     })
 
-    socket.on('whiteboard',()=>{
-      socket.to(roomId).emit('whiteboard');
+    socket.on('whiteboard',(data)=>{
+      socket.to(roomId).emit('whiteboard',data);
     })
 
     socket.on('record',()=>{
       socket.to(roomId).emit('record');
+    })
+
+    socket.on('icebreaker',(news)=>{
+      socket.to(roomId).emit('icebreaker',news);
+    })
+
+    socket.on('start-meet',()=>{
+      socket.to(roomId).emit('start-meet');
+    })
+
+    socket.on('end-meet',()=>{
+      socket.to(roomId).emit('end-meet');
     })
     
     socket.on('disconnect', () => {

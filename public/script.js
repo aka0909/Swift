@@ -134,6 +134,7 @@ const muteUnmute = () => {
       <i class="fas fa-microphone"></i>
     `
     document.querySelector('.mute-button').innerHTML = html;
+    document.querySelector('.mute-button1').innerHTML = html;
   }
   
   const setUnmuteButton = () => {
@@ -141,6 +142,7 @@ const muteUnmute = () => {
       <i class="unmute fas fa-microphone-slash"></i>
     `
     document.querySelector('.mute-button').innerHTML = html;
+    document.querySelector('.mute-button1').innerHTML = html;
   }
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
@@ -332,11 +334,13 @@ socket.on('canvas-data',function(data){
   image.src=data;
 })
 
-socket.on('whiteboard',function(){
+socket.on('whiteboard',function(data){
   let x = document.getElementById("white-board");
-  if (x.style.display === "none") {
+  if(data==="open")
+  {
     x.style.display = "block";
-  } else {
+  }
+  else {
     x.style.display = "none";
   }
 })
@@ -345,10 +349,12 @@ const WhiteBoard=()=>{
   let x = document.getElementById("white-board");
   if (x.style.display === "none") {
     x.style.display = "block";
+    socket.emit("whiteboard","open");
   } else {
     x.style.display = "none";
+    socket.emit('whiteboard',"close");
   }
-  socket.emit('whiteboard');
+ 
 }
 
 const MyWhiteBoard=()=>{
@@ -360,4 +366,69 @@ const MyWhiteBoard=()=>{
   }
 }
 //---------------------------------------------------------------------------------------------------------------------------------------
+//8. Icebreaker
 
+socket.on('icebreaker',(news)=>{
+  alert(news);
+})
+
+async function GetNews(){
+  let headline = await axios.get("https://newsapi.org/v2/top-headlines?country=in&apiKey=c902a6b809a94b5285ae42f366267d00");
+  let arr= headline.data.articles;
+  let news=arr[Math.floor(Math.random() * arr.length)].title;
+  alert(news);
+  socket.emit('icebreaker',news);
+}
+//---------------------------------------------------------------------------------------------------------------------------------------
+//9. Start and End Video Meet
+
+socket.on('start-meet',function(){
+  let x=document.querySelector(".call-area")
+  x.style.display="flex";
+  let y=document.querySelector(".only-call-chat-div")
+  y.style.display="none";
+  let z=document.querySelector(".chat-area")
+  z.style.flex=0.25;
+  let a=document.querySelector(".mode-toggler-only-chat")
+  a.style.display="none";
+  appendMessage("Video meeting started")
+})
+
+const startMeet=()=>{
+  let x=document.querySelector(".call-area")
+  x.style.display="flex";
+  let y=document.querySelector(".only-call-chat-div")
+  y.style.display="none";
+  let z=document.querySelector(".chat-area")
+  z.style.flex=0.25;
+  let a=document.querySelector(".mode-toggler-only-chat")
+  a.style.display="none";
+  appendMessage("Video meeting started")
+  socket.emit('start-meet');
+}
+
+socket.on('end-meet',function(){
+  let x=document.querySelector(".call-area")
+  x.style.display="none";
+  let y=document.querySelector(".only-call-chat-div")
+  y.style.display="flex";
+  let z=document.querySelector(".chat-area")
+  z.style.flex=0.8;
+  let a=document.querySelector(".mode-toggler-only-chat")
+  a.style.display="flex";
+  appendMessage("Video meeting ended")
+
+})
+
+const endMeet=()=>{
+  let x=document.querySelector(".call-area")
+  x.style.display="none";
+  let y=document.querySelector(".only-call-chat-div")
+  y.style.display="flex";
+  let z=document.querySelector(".chat-area")
+  z.style.flex=0.8;
+  let a=document.querySelector(".mode-toggler-only-chat")
+  a.style.display="flex";
+  appendMessage("Video meeting ended")
+  socket.emit('end-meet');
+}

@@ -25,9 +25,10 @@
   <script src="canvas.js"></script>
   <title>ROOM</title>
 </head>
-<body onload="init()">
-  <div class="canvass">
-      <div class="call-area">
+<body onload="init()" >
+  <div class="canvass">  
+<!-- --------------------------------------------------------------------------------------------------------------------------------------------- -->
+      <div class="mode-toggler-only-chat">
         <div class="mode-toggler">
             <input type="checkbox" class="checkbox" id="chk" />
             <label class="label" for="chk">
@@ -35,8 +36,51 @@
                 <i class="fas fa-sun"></i>
                 <div class="ball"></div>
             </label>
+        </div >
+      </div>
+<!-- //------------------------------------------------------------------------------------------------------------------------------------------- -->
+      <div class="call-area" style="display:none">
+        <div class="togglers">
+            <div class="mode-toggler">
+                <input type="checkbox" class="checkbox" id="chk" />
+                <label class="label" for="chk">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                    <div class="ball"></div>
+                </label>
+            </div >
+            <div class="meet-options-togglers">
+                <div onclick="endMeet()" class="controls-btn buttons endMeet-button side-buttons">
+                    End Meet
+                </div>
+                <div class="dropdown show" >
+                    <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </a>
+                  
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <div class=" dropdown-item">
+                            <button onclick="Record()" id="record-button">Record</button>
+                        </div>
+                        <div class="dropdown-item" id="download-button" onclick="Download()" >
+                            <i class="fas fa-download "></i>
+                        </div>
+                        <div onclick="WhiteBoard()" class="dropdown-item">
+                            <img src="./imgs/whiteboard.png" alt="" style="width: 30px;height: 30px;">
+                        </div>
+                        <!-- <div onclick="MyWhiteBoard()" class="dropdown-item">
+                            WB
+                        </div> -->
+                        <div onclick="GetNews()" class="dropdown-item">
+                           Icebreaker
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="videos">
+<!-- --------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+        <div class="videos" >
             <div id="video-grid">
 
             </div>
@@ -55,16 +99,18 @@
                 </canvas>
             </div>
         </div>
-        <div class="controls">
+<!-- --------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+        <div class="controls" >
             <div class="controls-block">
 
-                <div onclick="MyWhiteBoard()" class="controls-btn buttons whiteboard-button side-buttons">
+                <!-- <div onclick="MyWhiteBoard()" class="controls-btn buttons whiteboard-button side-buttons">
                     myWB
                 </div>
 
                 <div onclick="WhiteBoard()" class="controls-btn buttons whiteboard-button side-buttons">
                     <img src="./imgs/whiteboard.png" alt="" style="width: 30px;height: 30px;">
-                </div>
+                </div> -->
 
                 <div onclick="ShareScreen()" class="controls-btn buttons share-button side-buttons">
                     <i class="fas fa-share-square "></i>
@@ -86,17 +132,19 @@
                     <i class="fas fa-plus-square"></i>
                 </div>
 
-                <div class="controls-btn buttons side-buttons">
+                <!-- <div class="controls-btn buttons side-buttons">
                     <button onclick="Record()" id="record-button">Record</button>
                 </div>
 
                 <div class="controls-btn buttons side-buttons" id="download-button" onclick="Download()" >
                     <i class="fas fa-download "></i>
-                </div>
+                </div> -->
 
             </div>
         </div>
       </div>
+<!-- --------------------------------------------------------------------------------------------------------------------------------------------- -->
+      
       <div class="chat-area">
           <div class="header">
             <i class="fas fa-comments fa-2x"></i>
@@ -108,8 +156,49 @@
               <input type="text" id="message-input" placeholder="Type something...">
               <button id="send-button" type="submit"><i class="fas fa-paper-plane fa-lg"></i></button>
           </form>
-
       </div>
+<!-- --------------------------------------------------------------------------------------------------------------------------------------------- -->
+      <div class="only-call-chat-div">
+
+        <div onclick="getURL()" class="controls-btn buttons invite-button side-buttons">
+            <i class="fas fa-plus-square"></i>
+        </div>
+        <div onclick="muteUnmute()" class="controls-btn buttons mute-button1 side-buttons">
+            <i class="fas fa-microphone"></i>
+        </div>
+        <div onclick="endCall()" class="controls-btn buttons leave-button">
+            <i class="fas fa-phone-slash "></i>
+        </div>
+        <div onclick="startMeet()" class="controls-btn buttons startMeet-button side-buttons">
+            Start Meet
+        </div>
+        <div class="dropdown show" >
+            <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-h"></i>
+            </a>
+          
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <div class=" dropdown-item">
+                    <button onclick="Record()" id="record-button">Record</button>
+                </div>
+                <div class="dropdown-item" id="download-button" onclick="Download()" >
+                    <i class="fas fa-download "></i>
+                </div>
+                <div onclick="WhiteBoard()" class="dropdown-item">
+                    <img src="./imgs/whiteboard.png" alt="" style="width: 30px;height: 30px;">
+                </div>
+                <!-- <div onclick="MyWhiteBoard()" class="dropdown-item">
+                    WB
+                </div> -->
+                <div onclick="GetNews()" class="dropdown-item">
+                   Icebreaker
+                </div>
+            </div>
+
+        </div>
+      </div>
+<!-- --------------------------------------------------------------------------------------------------------------------------------------------- -->
+
   </div>
 
 
@@ -132,19 +221,10 @@
               }
             });
   </script>
-  <!-- <script>
-      let arr =["How about a small shoulder exercise now!",
-       "Time for water break!", ""]
-      function callfunction () {
-        alert("Drink water")
-    }
-      window.onload = function () {
-        setInterval(function () {
-        // Invoke function every 10 minutes
-         callfunction();
-        }, 5000);
-    } 
-  </script> -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <!-- -----------------------------------------------END OF MODE TOGGLER SCRIPT--------------------------------------------------------------- -->
   
 </body>
