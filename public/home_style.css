@@ -1,6 +1,7 @@
 body{
     margin: 0;
     padding: 0;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 .canvas{
@@ -91,7 +92,7 @@ section .wave.wave4{
     display:flex;
     flex-grow: 1;
     justify-content:space-between;
-    height:100vh;
+    min-height:100vh;
     background: #00c6ff;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #0072ff, #00c6ff);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #0072ff, #00c6ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -164,9 +165,24 @@ section .wave.wave4{
 
 /* ==========================================================TEXT-AND-BUTTON-STYLING=================================================================================== */
 
+h1{
+    font-weight: 900;
+}
 
-#title,p{
+p{
+    font-size: 20px;
+}
+
+#title, p{
     color:white;
+}
+
+li{
+    color:white;
+    font-size: 20px;
+}
+span{
+    font-weight:800;
 }
 
 .btn-primary{
@@ -194,7 +210,33 @@ a:hover {
 
 /* =============================================================XXXXXXXXXXXXXXXXXXXX=================================================================== */
 
-  
+@media (max-width: 991.98px) {
+    .banner{
+        flex-direction: column-reverse;
+        
+    }
+    #couple-vc,#About,#friend-vc,#Features{
+        width:100%;
+    }
+    #couple-vc{
+        border-bottom-left-radius:0%;
+        justify-content: center;
+        align-items: center;
+    }
+    #friend-vc{
+        border-top-right-radius:0%;
+        justify-content: center;
+        align-items: center;
+
+    }
+    
+    /* #features{
+        min-height: 50vh;
+    } */
+
+    
+
+}
 
 
 

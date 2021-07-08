@@ -1,6 +1,7 @@
 body{
     margin:0;
     padding:0;
+    font-family: 'Nunito Sans', sans-serif;
 }
 .canvass{
     flex-grow: 1;
@@ -264,6 +265,9 @@ video{
     cursor: pointer;
 }
 
+/* ------------------------------------------------START AND END MEET RELATED FEATURES STYLING--------------------------------------------------------------- */
+
+
 .only-call-chat-div{
     display:flex;
     height: 30px;
@@ -272,10 +276,12 @@ video{
 .endMeet-button{
     border-radius: 10px !important;
     margin-top:0px !important;
+    font-weight: 600 !important;
 }
 .startMeet-button{
     border-radius: 10px !important;
     margin-top:0px !important;
+    font-weight: 600 !important;
 }
 .mode-toggler-only-chat{
     display:flex;

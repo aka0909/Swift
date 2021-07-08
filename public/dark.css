@@ -1,6 +1,7 @@
 body{
     margin:0;
     padding:0;
+    font-family: 'Nunito Sans', sans-serif;
 }
 .canvass{
     flex-grow: 1;
@@ -268,6 +269,7 @@ video{
     padding: 8px;
     cursor: pointer;
 }
+/* ------------------------------------------------START AND END MEET RELATED FEATURES STYLING--------------------------------------------------------------- */
 
 .only-call-chat-div{
     display:flex;
