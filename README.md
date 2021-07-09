@@ -24,7 +24,7 @@
    - Templating language: EJS
    - Backend: Node.js, Express.js
    - uuid Library: To generate a unique URL for each room
-   - NewsAPI: To get top news headlines on the click of a button and break the ice. Awkward silences are a real problem.
+   - NewsAPI: To get top news headlines on the click of a button and break the ice. Awkward silences are a real problem.Period.
    - PeerJS: An intuitive library that acts as a wrapper over WebRTC and makes it easy to establish peer to peer connection.
    - Socket.io: To facilitate communication among users in the same room in real-time!
    - Nodemailer: To facilitate sending mail invite from the app itself on submitting a form
