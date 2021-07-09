@@ -30,8 +30,8 @@
 </head>
 <body onload="init()" >
   <div class="canvass">  
-<!-- --------------------------------------------------------------------------------------------------------------------------------------------- -->
-      <div class="mode-toggler-only-chat">
+<!-- -------------------------------------------------START OF MODE-TOGGLER DIV-------------------------------------------------------------------------------------------- -->
+      <div class="mode-toggler">
         <div class="mode-toggler">
             <input type="checkbox" class="checkbox" id="chk" />
             <label class="label" for="chk">
@@ -41,20 +41,15 @@
             </label>
         </div >
       </div>
-<!-- //------------------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------END OF MODE-TOGGLER DIV-------------------------------------------------------------------------------------------- -->
+
+<!-- ==================================================START OF VIDEO-MEET CALL AREA DIV OF THE ROOM============================================================================================ -->
+
       <div class="call-area" style="display:none">
-        <div class="togglers">
-            <div class="mode-toggler">
-                <input type="checkbox" class="checkbox" id="chk" />
-                <label class="label" for="chk">
-                    <i class="fas fa-moon"></i>
-                    <i class="fas fa-sun"></i>
-                    <div class="ball"></div>
-                </label>
-            </div >
+        <div class="top-bar-buttons">
             <div class="meet-options-togglers">
                 <div onclick="endMeet()" class="controls-btn buttons endMeet-button side-buttons">
-                    End Meet
+                    End Video Meet
                 </div>
                 <div class="dropdown show" >
                     <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -71,9 +66,6 @@
                         <div onclick="WhiteBoard()" class="dropdown-item">
                             <img src="./imgs/whiteboard.png" alt="" style="width: 30px;height: 30px;">
                         </div>
-                        <!-- <div onclick="MyWhiteBoard()" class="dropdown-item">
-                            WB
-                        </div> -->
                         <div onclick="GetNews()" class="dropdown-item">
                            Icebreaker
                         </div>
@@ -84,9 +76,15 @@
 <!-- --------------------------------------------------------------------------------------------------------------------------------------------- -->
 
         <div class="videos" >
+<!-- ------------------------------------------------START OF DIV WHERE THE VIDEOS ARE APPENDED--------------------------------------------------------------------------------------------- -->
+
             <div id="video-grid">
 
             </div>
+<!-- ------------------------------------------------END OF DIV WHERE THE VIDEOS ARE APPENDED--------------------------------------------------------------------------------------------- -->
+
+<!-- ------------------------------------------------START OF WHITEBOARD DIV--------------------------------------------------------------------------------------------- -->
+
             <div id="white-board" style="display:none">
                 <div id=color-options>
                     <div style="display:flex;flex-grow:1;height:30px;background:green;" id="green" onclick="color(this)"></div>
@@ -101,19 +99,13 @@
                 <canvas id="can" width="800" height="400" >   
                 </canvas>
             </div>
+<!-- ------------------------------------------------END OF WHITEBOARD DIV--------------------------------------------------------------------------------------------- -->
+
         </div>
-<!-- --------------------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- ------------------------------------------------START OF CONTROL BUTTONS AT THE BOTTOM DIV--------------------------------------------------------------------------------------------- -->
 
         <div class="controls" >
             <div class="controls-block">
-
-                <!-- <div onclick="MyWhiteBoard()" class="controls-btn buttons whiteboard-button side-buttons">
-                    myWB
-                </div>
-
-                <div onclick="WhiteBoard()" class="controls-btn buttons whiteboard-button side-buttons">
-                    <img src="./imgs/whiteboard.png" alt="" style="width: 30px;height: 30px;">
-                </div> -->
 
                 <div onclick="ShareScreen()" class="controls-btn buttons share-button side-buttons">
                     <i class="fas fa-share-square "></i>
@@ -134,19 +126,14 @@
                 <div onclick="getURL()" class="controls-btn buttons invite-button side-buttons">
                     <i class="fas fa-plus-square"></i>
                 </div>
-
-                <!-- <div class="controls-btn buttons side-buttons">
-                    <button onclick="Record()" id="record-button">Record</button>
-                </div>
-
-                <div class="controls-btn buttons side-buttons" id="download-button" onclick="Download()" >
-                    <i class="fas fa-download "></i>
-                </div> -->
-
             </div>
         </div>
+<!-- ------------------------------------------------END OF CONTROL BUTTONS AT THE BOTTOM DIV--------------------------------------------------------------------------------------------- -->
+
       </div>
-<!-- --------------------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- ==================================================END OF VIDEO-MEET CALL AREA DIV OF THE ROOM============================================================================================ -->
+
+<!-- ==================================================START OF CHAT-BOX DIV OF THE ROOM============================================================================================ -->
       
       <div class="chat-area">
           <div class="header">
@@ -160,21 +147,74 @@
               <button id="send-button" type="submit"><i class="fas fa-paper-plane fa-lg"></i></button>
           </form>
       </div>
-<!-- --------------------------------------------------------------------------------------------------------------------------------------------- -->
+<!-- ==================================================END OF CHAT-BOX DIV OF THE ROOM============================================================================================ -->
+
+<!-- ==================================================START OF DIV THAT APPEARS ONLY IN THE PURE CHAT AND CALL MEET============================================================================================ -->
       <div class="only-call-chat-div">
 
         <div onclick="getURL()" class="controls-btn buttons invite-button side-buttons">
             <i class="fas fa-plus-square"></i>
         </div>
+        <!-------------------MUTE-UNMUTE BUTTON---------------->
+
         <div onclick="muteUnmute()" class="controls-btn buttons mute-button1 side-buttons">
             <i class="fas fa-microphone"></i>
         </div>
+        <!-------------------END WHOLE CALL BUTTON---------------->
+
         <div onclick="endCall()" class="controls-btn buttons leave-button">
             <i class="fas fa-phone-slash "></i>
         </div>
+        <!-------------------START VIDEO MEET BUTTON---------------->
         <div onclick="startMeet()" class="controls-btn buttons startMeet-button side-buttons">
-            Start Meet
+            Start Video Meet
         </div>
+        <!----------------------------------------------MAIL-INVITE MODAL AND BUTTON------------------------------------------------------>
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="mail-invite">
+          <i class="fas fa-envelope-open-text fa-lg"></i>
+        </button>
+        
+        
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Send Invite</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <form action=""></form>
+                  <p>
+                    <label>Name</label>
+                    <input type="text" name="name" id="name">
+                  </p>
+                  <p>
+                    <label>Receiver Email Address</label>
+                    <input type="email" name="email" id="email">
+                  </p>
+                  <p>
+                    <label>Join Link</label>
+                    <input type="link" name="link" id="link">
+                  </p>
+                  <p>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button onclick="invite()" class="btn btn-primary">Submit</button>
+                    </div>
+                  </p>
+                </form>
+              </div>
+             
+            </div>
+          </div>
+        </div>
+
+        <!------------------------------------------------------END OF MAIL-INVITE MODAL AND BUTTON ------------------------------------------------------------------------------------->
+        
+        <!---------------------------------------------------START OF EXTRA-FEATURES IN DROPDOWN BUTTON------------------------------------------------------------------------------------->
         <div class="dropdown show" >
             <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-ellipsis-h"></i>
@@ -187,25 +227,25 @@
                 <div class="dropdown-item" id="download-button" onclick="Download()" >
                     <i class="fas fa-download "></i>
                 </div>
-                <div onclick="WhiteBoard()" class="dropdown-item">
+                <!-- <div onclick="WhiteBoard()" class="dropdown-item">
                     <img src="./imgs/whiteboard.png" alt="" style="width: 30px;height: 30px;">
-                </div>
-                <!-- <div onclick="MyWhiteBoard()" class="dropdown-item">
-                    WB
                 </div> -->
                 <div onclick="GetNews()" class="dropdown-item">
                    Icebreaker
                 </div>
             </div>
-
         </div>
+        <!---------------------------------------------------END OF EXTRA-FEATURES IN DROPDOWN BUTTON------------------------------------------------------------------------------------->
       </div>
+<!-- =====================================================END OF DIV THAT APPEARS ONLY IN THE PURE CHAT AND CALL MEET============================================================================================ -->
+    
+      
 <!-- --------------------------------------------------------------------------------------------------------------------------------------------- -->
 
   </div>
 
 
-  <!-- ------------------------------------------------MODE TOGGLER SCRIPT--------------------------------------------------------------- -->
+  <!-- ------------------------------------------------script for mode-toggler------------------------------------------------------------------- -->
 
   <script>
       const btn = document.querySelector(".checkbox");
@@ -224,11 +264,42 @@
               }
             });
   </script>
+  <!-- ------------------------------------------------ ------end of script for mode-toggler------------------------------------------------------------------- -->
+
+  <!-- -------------------------------------------------------script for sending mail invite-------------------------------------------------- -->
+  <script>
+      let url=window.location.href
+      const room = url.substring(url.lastIndexOf('/') + 1);
+      console.log(room);
+      const invite=()=>{
+      let name=document.getElementById("name").value;
+      let email=document.getElementById("email").value;
+      let link=document.getElementById("link").value;
+      let formData=JSON.stringify({
+        name:name,
+        email:email,
+        link:link
+      });
+      console.log(formData);
+      axios({
+    method: "post",
+    url: `/${room}/invite`,
+    data:formData,
+    headers: { "Content-Type": "application/json" },
+  }).then(res=>{
+        alert("Mail sent successfully");
+      }).catch(err=>{
+        alert(err);
+      })
+  
+    }
+  </script>
+  <!-- -------------------------------------------------------end of script for sending mail invite-------------------------------------------------- -->
+
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <!-- -----------------------------------------------END OF MODE TOGGLER SCRIPT--------------------------------------------------------------- -->
   
 </body>
 </html>

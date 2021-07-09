@@ -50,11 +50,17 @@ canvas{
     /* background-color: #243B53; */
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2); */
  }
+
+.mode-toggler{
+    display:flex;
+    margin-top:10px;
+    margin-left:10px;
+}
  
-.togglers{
+.top-bar-buttons{
     display:flex;
     margin:20px;
-    justify-content: space-between;
+    flex-direction: row-reverse;
 }
 .meet-options-togglers{
     display:flex;
@@ -279,15 +285,13 @@ video{
 .endMeet-button{
     border-radius: 10px !important;
     margin-top:0px !important;
+    font-weight: 600 !important;
+
 }
 .startMeet-button{
     border-radius: 10px !important;
     margin-top:0px !important;
-}
-
-.mode-toggler-only-chat{
-    display:flex;
-    margin-top:20px;
+    font-weight: 600 !important;
 
 }
 

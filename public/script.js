@@ -40,6 +40,8 @@ navigator.mediaDevices.getUserMedia({
   myVideoStream=stream;
   userstreams.push(myVideoStream);
   addVideoStream(myVideo, stream); //ADDING OUR OWN VIDEO TO THE STREAM
+  muteUnmute();
+  onOff();
 
   myPeer.on('call', call => {                           //ANSWERING CALL FROM THE OTHER USER TRYING TO CONNECT TO US
     call.answer(stream)
@@ -55,6 +57,8 @@ navigator.mediaDevices.getUserMedia({
         connectToNewUser(userId,stream);
     },1000);
     appendMessage(`${Name} connected`)
+    muteUnmute();
+    onOff();
   })
 })
 
@@ -113,7 +117,7 @@ messageForm.addEventListener('submit', e => {
   })
   
 
-// ===========================================================END OF VIDEO CALLING AND CHAT SECTIONS===========================================
+// ===================================================END OF VIDEO CALLING AND CHAT SECTIONS===================================================
 
 //====================================================CONTROL-BUTTON FUNCTIONALITIES============================================================
 
@@ -195,7 +199,7 @@ const onOff = () => {
 
 //---------------------------------------------------------------------------------------------------------------------------------------
 
-//4.End Call
+//4.End whole Call
 
 function endCall() {
     window.location.href = "/";
@@ -357,14 +361,15 @@ const WhiteBoard=()=>{
  
 }
 
-const MyWhiteBoard=()=>{
-  let x = document.getElementById("white-board");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
+// const MyWhiteBoard=()=>{
+//   let x = document.getElementById("white-board");
+//   if (x.style.display === "none") {
+//     x.style.display = "block";
+//   } else {
+//     x.style.display = "none";
+//   }
+// }
+
 //---------------------------------------------------------------------------------------------------------------------------------------
 //8. Icebreaker
 
@@ -389,8 +394,8 @@ socket.on('start-meet',function(){
   y.style.display="none";
   let z=document.querySelector(".chat-area")
   z.style.flex=0.25;
-  let a=document.querySelector(".mode-toggler-only-chat")
-  a.style.display="none";
+  // let a=document.querySelector(".mode-toggler-only-chat")
+  // a.style.display="none";
   appendMessage("Video meeting started")
 })
 
@@ -401,8 +406,8 @@ const startMeet=()=>{
   y.style.display="none";
   let z=document.querySelector(".chat-area")
   z.style.flex=0.25;
-  let a=document.querySelector(".mode-toggler-only-chat")
-  a.style.display="none";
+  // let a=document.querySelector(".mode-toggler-only-chat")
+  // a.style.display="none";
   appendMessage("Video meeting started")
   socket.emit('start-meet');
 }
@@ -414,9 +419,21 @@ socket.on('end-meet',function(){
   y.style.display="flex";
   let z=document.querySelector(".chat-area")
   z.style.flex=0.8;
-  let a=document.querySelector(".mode-toggler-only-chat")
-  a.style.display="flex";
+  // let a=document.querySelector(".mode-toggler-only-chat")
+  // a.style.display="flex";
   appendMessage("Video meeting ended")
+  //SWITCHING OFF USER AUDIO ON END OF VIDEO-MEET
+  const audioEnabled = myVideoStream.getAudioTracks()[0].enabled;
+    if (audioEnabled) {
+      myVideoStream.getAudioTracks()[0].enabled = false;
+      setUnmuteButton();
+    }
+  //SWITCHING OFF USER VIDEO ON END OF VIDEO-MEET
+  const videoEnabled = myVideoStream.getVideoTracks()[0].enabled;
+    if (videoEnabled) {
+      myVideoStream.getVideoTracks()[0].enabled = false;
+      setPlayVideo()
+    }
 
 })
 
@@ -427,8 +444,21 @@ const endMeet=()=>{
   y.style.display="flex";
   let z=document.querySelector(".chat-area")
   z.style.flex=0.8;
-  let a=document.querySelector(".mode-toggler-only-chat")
-  a.style.display="flex";
+  // let a=document.querySelector(".mode-toggler-only-chat")
+  // a.style.display="flex";
   appendMessage("Video meeting ended")
+  //SWITCHING OFF USER AUDIO ON END OF VIDEO-MEET
+  const audioEnabled = myVideoStream.getAudioTracks()[0].enabled;
+    if (audioEnabled) {
+      myVideoStream.getAudioTracks()[0].enabled = false;
+      setUnmuteButton();
+    }
+  //SWITCHING OFF USER VIDEO ON END OF VIDEO-MEET
+  const videoEnabled = myVideoStream.getVideoTracks()[0].enabled;
+    if (videoEnabled) {
+      myVideoStream.getVideoTracks()[0].enabled = false;
+      setPlayVideo()
+    }
   socket.emit('end-meet');
 }
+//---------------------------------------------------------------------------------------------------------------------------------------

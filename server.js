@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const { v4: uuidV4 } = require('uuid')
 
@@ -10,6 +10,7 @@ const { v4: uuidV4 } = require('uuid')
 
 app.set('view engine', 'ejs') 
 app.use(express.static('public'))
+app.use(express.json())
 
 
 app.get('/', (req, res) => {
@@ -28,6 +29,49 @@ app.get("/create-room/", (req, res) => {
 
 app.get('/:room', (req, res) => {
   res.render('room', { roomId: req.params.room })
+})
+
+//MAIL-INVITE ROUTE
+app.post('/:room/invite', (req,res)=>{
+  console.log(req.body)
+  const obj=JSON.parse(JSON.stringify(req.body));
+
+  const output = `
+  <p>You have a meet request!</p>
+  <h3>Call Details:</h3>
+  <ul>  
+    <li>Name: ${obj.name}</li>
+    <li>Email: ${obj.email}</li>
+    <li>Meet-Link: ${obj.link}</li>
+  </ul>`;
+
+  var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+          user: 'akanksha09092k@gmail.com',
+          pass: 'mithi2000'
+      }
+  });
+
+  var receiver=obj.email;
+  
+  const mailOptions = {
+      from: 'akanksha09092k@gmail.com', // sender address
+      to: receiver, // list of receivers
+      subject: 'Meet mail', // Subject line
+      html: output// plain text body
+  };
+  
+  transporter.sendMail(mailOptions, function (err, info) {
+      if(err)
+          console.log(err)
+      else
+          {console.log(info);res.status(200).json({
+              status:'Success'
+          })
+      }
+  });   
+
 })
 
 

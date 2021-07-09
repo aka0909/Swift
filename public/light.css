@@ -47,10 +47,16 @@ canvas{
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2); */
  }
  
- .togglers{
+ .mode-toggler{
+    display:flex;
+    margin-top:10px;
+    margin-left:10px;
+}
+ 
+.top-bar-buttons{
     display:flex;
     margin:20px;
-    justify-content: space-between;
+    flex-direction: row-reverse;
 }
 .meet-options-togglers{
     display:flex;
@@ -286,6 +292,7 @@ video{
 .mode-toggler-only-chat{
     display:flex;
     margin-top:20px;
+    margin-left:20px;
 
 }
 
