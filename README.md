@@ -39,4 +39,5 @@ https://docs.google.com/spreadsheets/d/1QoKGWlqi-IsqC-wLYgVI5jm2G5WYAGnrwI3aXgPO
 ![Video Chat App Use Case UML (1)](https://user-images.githubusercontent.com/65956313/123850946-3d03fe80-d938-11eb-94d5-2aa91857cb2d.jpeg)
 
 ## Video Demo (progress so far):
-https://drive.google.com/file/d/1wh3i7G72-0hOV9zT3SuAEsDerGXbWz7N/view?usp=sharing
+https://drive.google.com/file/d/16KK-zXSNo3-SJhgg8X0T_0WT6yNNmy9u/view?usp=sharing
+https://drive.google.com/file/d/1c4B033Bq6ZkbM9G1vhq6hNr05DIztDtx/view?usp=sharing (this video was recorded by the record feature in the app and downloaded using the download feature. You can also see the mail invite feature in action in this)
