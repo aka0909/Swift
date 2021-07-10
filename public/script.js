@@ -6,7 +6,7 @@ var myPeer = new Peer(undefined, {
 })
 const myVideo = document.createElement('video')
 myVideo.muted = true //BECAUSE WE DO NOT WANT TO HEAR OUR OWN VOICE
-myVideo.setAttribute("controls","true")
+// myVideo.setAttribute("controls","true")
 let currentPeer;
 const peers = {}
 let peersList=[]
@@ -20,6 +20,7 @@ const messageForm = document.getElementById('send-container')
 const messageInput = document.getElementById('message-input')
 const recordButton = document.getElementById('record-button');
 const downloadButton = document.getElementById('download-button');
+const usernameDiv =document.getElementById('username');
 
 function appendMessage(message) {
     const messageElement = document.createElement('div')
@@ -42,6 +43,9 @@ navigator.mediaDevices.getUserMedia({
   addVideoStream(myVideo, stream); //ADDING OUR OWN VIDEO TO THE STREAM
   muteUnmute();
   onOff();
+}).catch(err=>{
+  alert("Retry and give the app permission to use camera and microphone")
+})
 
   myPeer.on('call', call => {                           //ANSWERING CALL FROM THE OTHER USER TRYING TO CONNECT TO US
     call.answer(stream)
@@ -60,7 +64,7 @@ navigator.mediaDevices.getUserMedia({
     muteUnmute();
     onOff();
   })
-})
+// })
 
 socket.on('user-disconnected', userId => {
   if (peers[userId]) peers[userId].close()
@@ -72,7 +76,9 @@ socket.on('user-disconnected', userId => {
 myPeer.on('open', id => {
   const Name = prompt('What is your name?')
   appendMessage('You joined')
+  usernameDiv.append(`Welcome ${Name}`);
   socket.emit('join-room', ROOM_ID, id,Name)
+
 })
 
 //CONNECTING TO NEW USER
@@ -138,7 +144,7 @@ const muteUnmute = () => {
       <i class="fas fa-microphone"></i>
     `
     document.querySelector('.mute-button').innerHTML = html;
-    document.querySelector('.mute-button1').innerHTML = html;
+    // document.querySelector('.mute-button1').innerHTML = html;
   }
   
   const setUnmuteButton = () => {
@@ -146,7 +152,7 @@ const muteUnmute = () => {
       <i class="unmute fas fa-microphone-slash"></i>
     `
     document.querySelector('.mute-button').innerHTML = html;
-    document.querySelector('.mute-button1').innerHTML = html;
+    // document.querySelector('.mute-button1').innerHTML = html;
   }
 
 // ---------------------------------------------------------------------------------------------------------------------------------------
@@ -462,3 +468,14 @@ const endMeet=()=>{
   socket.emit('end-meet');
 }
 //---------------------------------------------------------------------------------------------------------------------------------------
+
+// 10. My Notes
+const notesTaker=()=>{
+  let x = document.getElementById("my-notes");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+ 
+}

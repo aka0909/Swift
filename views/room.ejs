@@ -48,8 +48,8 @@
       <div class="call-area" style="display:none">
         <div class="top-bar-buttons">
             <div class="meet-options-togglers">
-                <div onclick="endMeet()" class="controls-btn buttons endMeet-button side-buttons">
-                    End Video Meet
+                <div onclick="endCall()" class="controls-btn buttons endMeet-button side-buttons">
+                    End Whole Meet
                 </div>
                 <div class="dropdown show" >
                     <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -69,6 +69,9 @@
                         <div onclick="GetNews()" class="dropdown-item">
                            Icebreaker
                         </div>
+                        <div onclick="notesTaker()" class="dropdown-item">
+                          My Notes
+                       </div>
                     </div>
                 </div>
             </div>
@@ -101,6 +104,35 @@
             </div>
 <!-- ------------------------------------------------END OF WHITEBOARD DIV--------------------------------------------------------------------------------------------- -->
 
+<!-- ------------------------------------------------START OF NOTES-TAKER DIV--------------------------------------------------------------------------------------------- -->
+
+            <div id="my-notes" style="display:none">
+              <div class="container my-3">
+                <h4 id="notes-taker-title">Notes Taker <i class="fas fa-clipboard fa-lg"></i></h4>
+                <hr>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Note Title</h5>
+                       <div class="form-group">
+                          <textarea class="form-control" id="note-title" rows="1"></textarea>
+                       </div>
+                        <h5 class="card-title">Write your note!</h5>
+                        <div class="form-group">
+                            <textarea class="form-control" id="add-note" rows="3"></textarea>
+                        </div>
+                        <button class="btn btn-primary" id="add-button" style="background-color: rgb(187, 233, 96);border:0px;color:darkgreen">
+                          Add Note
+                        </button>
+                    </div>
+                </div>
+                <hr>
+                <h4 id="notes-display-title">Your Notes</h4>
+                <hr>
+                <div id="notes" class="row container-fluid"> </div>
+              </div>
+            </div>
+<!-- ------------------------------------------------END OF NOTES-TAKER DIV--------------------------------------------------------------------------------------------- -->
+
         </div>
 <!-- ------------------------------------------------START OF CONTROL BUTTONS AT THE BOTTOM DIV--------------------------------------------------------------------------------------------- -->
 
@@ -119,8 +151,9 @@
                     <i class="fas fa-video "></i>
                 </div>
 
-                <div onclick="endCall()" class="controls-btn buttons leave-button">
-                    <i class="fas fa-phone-slash "></i>
+
+                <div onclick="endMeet()" class="controls-btn buttons leave-button">
+                  <i class="fas fa-phone-slash "></i>
                 </div>
 
                 <div onclick="getURL()" class="controls-btn buttons invite-button side-buttons">
@@ -136,6 +169,9 @@
 <!-- ==================================================START OF CHAT-BOX DIV OF THE ROOM============================================================================================ -->
       
       <div class="chat-area">
+          <div id="username">
+
+          </div>
           <div class="header">
             <i class="fas fa-comments fa-2x"></i>
           </div>
@@ -149,29 +185,24 @@
       </div>
 <!-- ==================================================END OF CHAT-BOX DIV OF THE ROOM============================================================================================ -->
 
-<!-- ==================================================START OF DIV THAT APPEARS ONLY IN THE PURE CHAT AND CALL MEET============================================================================================ -->
+<!-- ==================================================START OF DIV THAT APPEARS ONLY IN THE PURE CHAT MEET============================================================================================ -->
       <div class="only-call-chat-div">
-
-        <div onclick="getURL()" class="controls-btn buttons invite-button side-buttons">
+        <!-------------------INVITE BUTTON---------------->
+        <div onclick="getURL()" class="controls-btn buttons invite-button side-buttons" style="margin-top:0px;">
             <i class="fas fa-plus-square"></i>
-        </div>
-        <!-------------------MUTE-UNMUTE BUTTON---------------->
-
-        <div onclick="muteUnmute()" class="controls-btn buttons mute-button1 side-buttons">
-            <i class="fas fa-microphone"></i>
         </div>
         <!-------------------END WHOLE CALL BUTTON---------------->
 
-        <div onclick="endCall()" class="controls-btn buttons leave-button">
-            <i class="fas fa-phone-slash "></i>
-        </div>
+        <div onclick="endCall()" class="controls-btn buttons endMeet-button side-buttons">
+          End Whole Meet
+      </div>
         <!-------------------START VIDEO MEET BUTTON---------------->
         <div onclick="startMeet()" class="controls-btn buttons startMeet-button side-buttons">
             Start Video Meet
         </div>
         <!----------------------------------------------MAIL-INVITE MODAL AND BUTTON------------------------------------------------------>
 
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="mail-invite">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="mail-invite" style="margin-right:10px;height:40px;">
           <i class="fas fa-envelope-open-text fa-lg"></i>
         </button>
         
@@ -188,16 +219,12 @@
               <div class="modal-body">
                   <form action=""></form>
                   <p>
-                    <label>Name</label>
+                    <label>Sender Name</label>
                     <input type="text" name="name" id="name">
                   </p>
                   <p>
                     <label>Receiver Email Address</label>
                     <input type="email" name="email" id="email">
-                  </p>
-                  <p>
-                    <label>Join Link</label>
-                    <input type="link" name="link" id="link">
                   </p>
                   <p>
                     <div class="modal-footer">
@@ -214,30 +241,9 @@
 
         <!------------------------------------------------------END OF MAIL-INVITE MODAL AND BUTTON ------------------------------------------------------------------------------------->
         
-        <!---------------------------------------------------START OF EXTRA-FEATURES IN DROPDOWN BUTTON------------------------------------------------------------------------------------->
-        <div class="dropdown show" >
-            <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-ellipsis-h"></i>
-            </a>
-          
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <div class=" dropdown-item">
-                    <button onclick="Record()" id="record-button">Record</button>
-                </div>
-                <div class="dropdown-item" id="download-button" onclick="Download()" >
-                    <i class="fas fa-download "></i>
-                </div>
-                <!-- <div onclick="WhiteBoard()" class="dropdown-item">
-                    <img src="./imgs/whiteboard.png" alt="" style="width: 30px;height: 30px;">
-                </div> -->
-                <div onclick="GetNews()" class="dropdown-item">
-                   Icebreaker
-                </div>
-            </div>
-        </div>
-        <!---------------------------------------------------END OF EXTRA-FEATURES IN DROPDOWN BUTTON------------------------------------------------------------------------------------->
+        
       </div>
-<!-- =====================================================END OF DIV THAT APPEARS ONLY IN THE PURE CHAT AND CALL MEET============================================================================================ -->
+<!-- =====================================================END OF DIV THAT APPEARS ONLY IN THE PURE CHAT MEET============================================================================================ -->
     
       
 <!-- --------------------------------------------------------------------------------------------------------------------------------------------- -->
@@ -274,11 +280,11 @@
       const invite=()=>{
       let name=document.getElementById("name").value;
       let email=document.getElementById("email").value;
-      let link=document.getElementById("link").value;
+      // let link=document.getElementById("link").value;
       let formData=JSON.stringify({
         name:name,
         email:email,
-        link:link
+        link:url
       });
       console.log(formData);
       axios({
@@ -300,6 +306,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="notes.js"></script>
   
 </body>
 </html>

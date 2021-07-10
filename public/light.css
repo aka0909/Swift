@@ -63,6 +63,16 @@ canvas{
     flex-direction: row;
 }
 
+#dropdownMenuLink{
+    background-color: #486581;
+    color:#D9E2EC ;
+    border:none;
+}
+
+.dropdown-item{
+    cursor: pointer;
+}
+
 .videos{
     flex-grow: 1;
     display:flex;
@@ -76,6 +86,8 @@ canvas{
     display:flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+
 }
 
 video{
@@ -198,7 +210,14 @@ video{
 
 
 /* ------------------------------------------------CHAT AREA STYLING--------------------------------------------------------------- */
-
+#username{
+    background-color:#F0F4F8;
+    font-weight:800;
+    text-align: center;
+    color:#102A43;
+    box-shadow:0 0px 0px 0;
+    border:none !important;
+}
 .chat-area{
     flex:0.8;
     /* background-color: #313535; */
@@ -295,6 +314,24 @@ video{
     margin-left:20px;
 
 }
+#mail-invite{
+    background-color: #486581;
+    color:#D9E2EC ;
+    border:none;
+}
+
+#notes-taker-title, #notes-display-title{
+    color:#102A43;
+    font-weight: 800;
+}
+
+hr{
+    background-color:#102A43;
+}
+
+.card-body{
+    background-color:#D9E2EC ;
+}
 
 /* ================================================================================================================================================ */
 
@@ -303,6 +340,7 @@ video{
     .canvass{
         width: 100%;
         flex-direction: column;
+        min-height: 150vh;
     }
 
     #video-grid{

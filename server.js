@@ -40,8 +40,7 @@ app.post('/:room/invite', (req,res)=>{
   <p>You have a meet request!</p>
   <h3>Call Details:</h3>
   <ul>  
-    <li>Name: ${obj.name}</li>
-    <li>Email: ${obj.email}</li>
+    <li>Friend's Name: ${obj.name}</li>
     <li>Meet-Link: ${obj.link}</li>
   </ul>`;
 

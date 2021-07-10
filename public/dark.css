@@ -22,6 +22,8 @@ canvas{
     /* border-radius:10px; */
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    /* resize:both;
+    overflow:auto; */
 }
 
 
@@ -66,6 +68,17 @@ canvas{
     display:flex;
     flex-direction: row;
 }
+
+#dropdownMenuLink{
+    background-color:#D9E2EC ;
+    color:#243B53;
+    border:none;
+}
+
+.dropdown-item{
+    cursor: pointer;
+}
+
 .videos{
     flex-grow: 1;
     display:flex;
@@ -80,6 +93,7 @@ canvas{
     display:flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 video{
@@ -202,7 +216,13 @@ video{
 
 
 /* ------------------------------------------------CHAT AREA STYLING--------------------------------------------------------------- */
-
+#username{
+    background-color: #102A43;
+    font-weight:800;
+    text-align: center;
+    color:#D9E2EC;
+    box-shadow:0 0px 0px 0;
+}
 .chat-area{
     flex:0.8;
     /* background-color: #313535; */
@@ -295,14 +315,38 @@ video{
 
 }
 
+#mail-invite{
+    background-color:#D9E2EC ;
+    color:#243B53;
+    border:none;
+}
 
-/* ================================================================================================================================================ */
+#notes-taker-title, #notes-display-title{
+    color:#D9E2EC;
+    font-weight: 800;
+}
+
+#no-notes-mssg{
+    color:#D9E2EC;
+}
+
+.card-body{
+    background-color:#D9E2EC;
+}
+
+hr{
+    background-color:#D9E2EC;
+}
+
+
+/* ====================================================================MEDIA-QUERIES============================================================================ */
 
 @media (max-width: 991.98px) {
 
     .canvass{
         width: 100%;
         flex-direction: column;
+        min-height:150vh;
     }
 
     #video-grid{
