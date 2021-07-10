@@ -12,6 +12,7 @@
    - Chat and talk and enter as many video meets as you wish in the same room
    - Collaborative Whiteboard!!!
    - **ICEBREAKER**: Break the ice with news headlines on a button click!
+   - A notes taker
    - Record and download meets
    - Share Screen (only the host can)
    - Light and Dark mode, but we all know you are going for dark :p
@@ -34,9 +35,6 @@
    - Codepen: Reference for the waves in the home page, the clock in the join or create room page, theme mode toggler in the rooms
 ## Progress sheet link:
 https://docs.google.com/spreadsheets/d/1QoKGWlqi-IsqC-wLYgVI5jm2G5WYAGnrwI3aXgPOc1Q/edit?usp=sharing
-
-## Use Case UML diagram:
-![Video Chat App Use Case UML (1)](https://user-images.githubusercontent.com/65956313/123850946-3d03fe80-d938-11eb-94d5-2aa91857cb2d.jpeg)
 
 ## Video Demo (progress so far):
 https://drive.google.com/file/d/16KK-zXSNo3-SJhgg8X0T_0WT6yNNmy9u/view?usp=sharing
