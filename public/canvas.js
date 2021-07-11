@@ -27,6 +27,7 @@ canvas.addEventListener("mouseup", function (e) {
 canvas.addEventListener("mouseout", function (e) {
     findxy('out', e)
 }, false);
+healthalert();
 }
 
 function color(obj) {

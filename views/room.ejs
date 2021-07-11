@@ -78,7 +78,8 @@
         </div>
 <!-- --------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-        <div class="videos" >
+        <div class="main-area" >
+          <div id="health-alert" style="display:none"></div>
 <!-- ------------------------------------------------START OF DIV WHERE THE VIDEOS ARE APPENDED--------------------------------------------------------------------------------------------- -->
 
             <div id="video-grid">
@@ -301,6 +302,28 @@
     }
   </script>
   <!-- -------------------------------------------------------end of script for sending mail invite-------------------------------------------------- -->
+  <!-- -------------------------------------------------------start of script for sending health alert-------------------------------------------------- -->
+   <script>
+     let health_mssgs=["It's time for water break!", "How about a small neck exercise now!","Stretch out your arms and legs a bit now", "Close your eyes for 2 minutes", "Take a walk around the room"];
+       const healthalert=setInterval(function(){
+       console.log("activated")
+       let healthMessageContainer=document.getElementById("health-alert");
+       let html="";
+       let mssg=health_mssgs[Math.floor(Math.random()*health_mssgs.length)];
+       html+=`<p style="color:red !important">Health Alert!</p>
+              <p>${mssg}</p>`;
+       healthMessageContainer.innerHTML=html;
+       healthMessageContainer.style.display="block";
+       setTimeout(function(){
+        healthMessageContainer.style.display="none";
+        healthMessageContainer.innerHTML="";
+        console.log("deactivated")
+       },22000);
+      
+     },120000);
+   </script>
+
+  <!-- -------------------------------------------------------end of script for sending health alert-------------------------------------------------- -->
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

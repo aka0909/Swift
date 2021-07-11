@@ -47,15 +47,15 @@ app.post('/:room/invite', (req,res)=>{
   var transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-          user: 'akanksha09092k@gmail.com',
-          pass: 'mithi2000'
+          user: 'swiftvideocall@gmail.com',
+          pass: 'swift2021'
       }
   });
 
   var receiver=obj.email;
   
   const mailOptions = {
-      from: 'akanksha09092k@gmail.com', // sender address
+      from: 'swiftvideocall@gmail.com', // sender address
       to: receiver, // list of receivers
       subject: 'Meet mail', // Subject line
       html: output// plain text body
