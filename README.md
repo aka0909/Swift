@@ -2,7 +2,7 @@
 # SWIFT
 
 ## About the App
-   True to its name, **SWIFT** couples great rapidity with ease of movement. It is your one stop destination for speedy and easy call connects.
+   True to its name, **SWIFT** couples great rapidity with ease of movement. It is your one stop destination for speedy and easy video call and chat connects.
    
    This web application is my submission for the month long challenge to build a video-calling app in **Engage'21, a mentorship program conducted by Microsoft.**
    
@@ -41,8 +41,18 @@
    - Fontawesome: For all the icons in the web app
    - Freepik: For all the images in the web app
    - Codepen: Reference for the waves in the home page, the clock in the join or create room page, theme mode toggler in the rooms
-## Progress sheet link:
-https://docs.google.com/spreadsheets/d/1QoKGWlqi-IsqC-wLYgVI5jm2G5WYAGnrwI3aXgPOc1Q/edit?usp=sharing
+   
+## How I used Agile Methodology in the making of this app:
+   I had planned my goals in sprints where each sprint was one week long.
+   - **Sprint 0:** The main focus was to :
+     - Get familiar with the technologies and programming languages required for the project especially since this was my first brush with development. 
+     - Develop a rudimentary idea of what features I wanted to include in the application
+   - **Sprint 1:** The goal was to make a minimum viable product along with very basic but important features such as mute/unmute, switch video on/off, leave room, copy room          link to clipboard and start working on a chat feature
+   - **Sprint 2:** On acheiving most targets in the previous sprint I went on to integrate all of them in a good UI, add a dark and light mode feature, and started thinking and        implementing more complex features in the app
+   - **Sprint 3:** Built in more complex features into the app such as share screen, record and download video, collaborative whiteboard and icebreaker and further improved the        UI
+   - **Sprint 4:** Added a simple notes taker feature and attempted to incorporate the Adapt feature. Added the health alerts feature into the app, realising its importance            after I spent the last 3 days in front of the screen without keeping a track of when I last drank water or walked a bit or stretched a little XD
+   - I used to log my work in the sheet below Sprint-wise. At the starting of each week we had a group mentor call and one-one sessions as well which served as sprint meets and      I used to incorporate the suggestions of my mentors in my work.
+     https://docs.google.com/spreadsheets/d/1QoKGWlqi-IsqC-wLYgVI5jm2G5WYAGnrwI3aXgPOc1Q/edit?usp=sharing
 
 ## Video Demo (progress so far):
 https://drive.google.com/file/d/16KK-zXSNo3-SJhgg8X0T_0WT6yNNmy9u/view?usp=sharing
