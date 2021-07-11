@@ -6,6 +6,15 @@
    
    This web application is my submission for the month long challenge to build a video-calling app in **Engage'21, a mentorship program conducted by Microsoft.**
    
+## How to run this project locally
+- Clone the given repository into your device
+- Run the command `npm install` in your terminal in the root directory of the project to install the various dependencies
+- Now run `npm i -g peer` to globally install peer dependency
+- Install nodemon as a dev dependency by running `npm install --save-dev nodemon` in your terminal
+- Now run `nodemon server.js` in the terminal
+- Open another terminal and start the peer server by running `peerjs --port 3001`in the terminal
+- The app is now up and running on port 3000!
+   
 ## App Features
    - The uuid library generates unique URLs for every room
    - Real-time chatting feature
@@ -29,7 +38,6 @@
    - PeerJS: An intuitive library that acts as a wrapper over WebRTC and makes it easy to establish peer to peer connection.
    - Socket.io: To facilitate communication among users in the same room in real-time!
    - Nodemailer: To facilitate sending mail invite from the app itself on submitting a form
-   - AOS: Animation on scroll library for the animations on home page
    - Fontawesome: For all the icons in the web app
    - Freepik: For all the images in the web app
    - Codepen: Reference for the waves in the home page, the clock in the join or create room page, theme mode toggler in the rooms
