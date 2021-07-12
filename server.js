@@ -95,6 +95,10 @@ io.on('connection', socket => {
       socket.to(roomId).emit('whiteboard',data);
     })
 
+    socket.on('clear-whiteboard',()=>{
+      socket.to(roomId).emit('clear-whiteboard');
+    })
+
     socket.on('record',()=>{
       socket.to(roomId).emit('record');
     })

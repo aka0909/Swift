@@ -78,6 +78,7 @@ root.timeout=setTimeout(function(){
 function erase() {
 var m = confirm("Want to clear");
 if (m) {
+    socket.emit('clear-whiteboard');
     ctx.clearRect(0, 0, w, h);
     document.getElementById("canvasimg").style.display = "none";
     if(root.timeout !=undefined) clearTimeout(root.timeout);

@@ -61,8 +61,8 @@ navigator.mediaDevices.getUserMedia({
         connectToNewUser(userId,stream);
     },1000);
     appendMessage(`${Name} connected`)
-    muteUnmute();
-    onOff();
+    // muteUnmute();
+    // onOff();
   })
 // })
 
@@ -74,7 +74,10 @@ socket.on('user-disconnected', userId => {
 
 
 myPeer.on('open', id => {
-  const Name = prompt('What is your name?')
+  // const Name = prompt('What is your name?')
+  let Name = prompt('What is your name?')
+  if(Name.trimEnd()==="")
+    Name=prompt('Please let us know your name')
   appendMessage('You joined')
   usernameDiv.append(`Welcome ${Name}`);
   socket.emit('join-room', ROOM_ID, id,Name)
@@ -342,6 +345,10 @@ socket.on('canvas-data',function(data){
     ctx.drawImage(image,0,0);
   };
   image.src=data;
+})
+
+socket.on('clear-whiteboard',function(){
+  alert("A user in the meet just cleared the whole whiteboard.Let them know if you are done too and clear the whiteboard at your end.")
 })
 
 socket.on('whiteboard',function(data){
