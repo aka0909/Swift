@@ -55,6 +55,10 @@
    - Basic functionalities of mute,unmute,switch video on or off, end whole meet
    - Invite by sharing the room link or send a mail invite just as easily!
    - Responsive and easy to the eyes UI
+## Layout of the application
+![6c2b811c548f4305bb7e03d9707efb88-0001](https://user-images.githubusercontent.com/65956313/125353987-e14a6400-e380-11eb-814a-2e30cc51a612.jpg)
+
+
 ## Technologies and Resources used
    - Front end languages: HTML,CSS,Javascript,Axios
    - Front-end framework: Bootstrap to design the user interface (UI)
