@@ -22,10 +22,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="dark.css" id="theme-link">
+  <link rel="stylesheet" href="/css/dark.css" id="theme-link">
   <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
-  <script src="script.js" defer></script>
-  <script src="canvas.js"></script>
+  <script src="/js/script.js" defer></script>
+  <script src="/js/canvas.js"></script>
   <title>ROOM</title>
 </head>
 <body onload="init()" >
@@ -261,13 +261,13 @@
       // Listen for a click on the button
       btn.addEventListener("click", function() {
             // If the current URL contains "ligh-theme.css"
-             if (theme.getAttribute("href") == "light.css") {
+             if (theme.getAttribute("href") == "/css/light.css") {
                      // ... then switch it to "dark-theme.css"
-                         theme.href = "dark.css";
+                         theme.href = "/css/dark.css";
               // Otherwise...
               } else {
                       // ... switch it to "light-theme.css"
-                          theme.href = "light.css";
+                          theme.href = "/css/light.css";
               }
             });
   </script>
@@ -329,7 +329,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="notes.js"></script>
+  <script src="/js/notes.js"></script>
   
 </body>
 </html>
