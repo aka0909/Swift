@@ -15,6 +15,30 @@
 - Install nodemon as a dev dependency by running `npm install --save-dev nodemon` in your terminal
 - Now run `nodemon server.js` in the terminal
 - Open another terminal and start the peer server by running `peerjs --port 3001`in the terminal
+- For the mail feature, in the following codes in server.js file:
+
+
+  `var transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+          user: process.env.EMAIL_ID,
+          pass: process.env.PASSWORD
+      }
+  });`
+  
+  
+  and
+  
+  
+  ` const mailOptions = {
+      from: process.env.EMAIL_ID, // sender address
+      to: receiver, // list of receivers
+      subject: 'Meet mail', // Subject line
+      html: output// plain text body
+  };`
+  
+  
+  replace "user" and "from" with a gmail id of your choice and pass to the password of the gmail id entered. Make this gmail id available to less secure apps while testing the app.
 - The app is now up and running on port 3000!
    
 ## App Features
