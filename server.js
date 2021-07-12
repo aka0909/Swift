@@ -1,3 +1,8 @@
+const dotenv = require('dotenv');
+dotenv.config({
+  path:'./config.env'
+})
+
 const express = require('express')
 const app = express()
 const server = require('http').Server(app)
@@ -47,15 +52,15 @@ app.post('/:room/invite', (req,res)=>{
   var transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-          user: 'swiftvideocall@gmail.com',
-          pass: 'swift2021'
+          user: process.env.EMAIL_ID,
+          pass: process.env.PASSWORD
       }
   });
 
   var receiver=obj.email;
   
   const mailOptions = {
-      from: 'swiftvideocall@gmail.com', // sender address
+      from: process.env.EMAIL_ID, // sender address
       to: receiver, // list of receivers
       subject: 'Meet mail', // Subject line
       html: output// plain text body
