@@ -11,7 +11,7 @@
 ## How to run this project locally
 - Clone the given repository into your device
 - Run the command `npm install` in your terminal in the root directory of the project to install the various dependencies
-- Now run `npm i -g peer` to globally install peer dependency
+- Now run `npm i -g peer` to globally install PeerJS
 - Install nodemon as a dev dependency by running `npm install --save-dev nodemon` in your terminal
 - Now run `nodemon server.js` in the terminal
 - Open another terminal and start the peer server by running `peerjs --port 3001`in the terminal
