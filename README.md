@@ -7,7 +7,7 @@
    This web application is my submission for the month long challenge to build a video-calling app in **Engage'21, a mentorship program conducted by Microsoft.**
    
 ## Video Demo
-https://drive.google.com/file/d/1UE6XbprO2dDezIGhHFjJenxesT4sVcAC/view?usp=sharing
+
    
 ## How to run this project locally
 - Clone the given repository into your device
