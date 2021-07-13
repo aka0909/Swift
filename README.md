@@ -7,6 +7,7 @@
    This web application is my submission for the month long challenge to build a video-calling app in **Engage'21, a mentorship program conducted by Microsoft.**
    
 ## Video Demo
+https://drive.google.com/file/d/1UE6XbprO2dDezIGhHFjJenxesT4sVcAC/view?usp=sharing
    
 ## How to run this project locally
 - Clone the given repository into your device
@@ -60,7 +61,7 @@
 
 
 ## Technologies and Resources used
-   - Front end languages: HTML,CSS,Javascript,Axios
+   - Front end languages and technologies: HTML,CSS,Javascript,Axios
    - Front-end framework: Bootstrap to design the user interface (UI)
    - Templating language: EJS
    - Backend: Node.js, Express.js
@@ -69,7 +70,7 @@
    - PeerJS: An intuitive library that acts as a wrapper over WebRTC and makes it easy to establish peer to peer connection.
    - Socket.io: To facilitate communication among users in the same room in real-time!
    - Nodemailer: To facilitate sending mail invite from the app itself on submitting a form
-   - Fontawesome: For all the icons in the web app
+   - Fontawesome and Flaticon: For all the icons in the web app
    - Freepik: For all the images in the web app
    - Codepen: Reference for the waves in the home page, the clock in the join or create room page, theme mode toggler in the rooms
    
