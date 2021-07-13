@@ -14,8 +14,6 @@ https://drive.google.com/file/d/1UE6XbprO2dDezIGhHFjJenxesT4sVcAC/view?usp=shari
 - Run the command `npm install` in your terminal in the root directory of the project to install the various dependencies
 - Now run `npm i -g peer` to globally install PeerJS
 - Install nodemon as a dev dependency by running `npm install --save-dev nodemon` in your terminal
-- Now run `nodemon server.js` in the terminal
-- Open another terminal and start the peer server by running `peerjs --port 3001`in the terminal
 - For the mail feature, in the following codes in server.js file:
 
 
@@ -39,7 +37,9 @@ https://drive.google.com/file/d/1UE6XbprO2dDezIGhHFjJenxesT4sVcAC/view?usp=shari
   };`
   
   
-  replace "user" and "from" with a gmail id of your choice and pass to the password of the gmail id entered. Make this gmail id available to less secure apps while testing the app.
+  replace "process.env.EMAIL_ID" with a gmail id of your choice and "process.env.PASSWORD" to the password of the gmail id entered. Make this gmail id available to less secure apps while testing the app.
+- Now run `nodemon server.js` in the terminal
+- Open another terminal and start the peer server by running `peerjs --port 3001`in the terminal
 - The app is now up and running on port 3000!
    
 ## App Features
@@ -56,7 +56,8 @@ https://drive.google.com/file/d/1UE6XbprO2dDezIGhHFjJenxesT4sVcAC/view?usp=shari
    - Basic functionalities of mute,unmute,switch video on or off, end whole meet
    - Invite by sharing the room link or send a mail invite just as easily!
    - Responsive and easy to the eyes UI
-## Layout of the application
+   
+## Layout and flow of the application
 ![6c2b811c548f4305bb7e03d9707efb88-0001](https://user-images.githubusercontent.com/65956313/125353987-e14a6400-e380-11eb-814a-2e30cc51a612.jpg)
 
 
@@ -85,5 +86,8 @@ https://drive.google.com/file/d/1UE6XbprO2dDezIGhHFjJenxesT4sVcAC/view?usp=shari
    - **Sprint 4:** Added a simple notes taker feature and attempted to incorporate the Adopt feature. Added the health alerts feature into the app, after a talk with my parents and from personal experience on how one loses track of important things while sitting in front of screen for long such as, drinking water or getting up and stretching a bit which are small but very important things for health in the long run.  
    - I used to log my work in the sheet below Sprint-wise. At the starting of each week we had a group mentor call and one-one sessions as well which served as sprint meets and      I used to incorporate the suggestions of my mentors in my work.
      https://docs.google.com/spreadsheets/d/1QoKGWlqi-IsqC-wLYgVI5jm2G5WYAGnrwI3aXgPOc1Q/edit?usp=sharing
+     
+## Thought behind the UI
+I wanted the UI to be simple and eye pleasing especially since this was a video calling app which meant the user was going to be spending a lot of time in front of the screen. This is why the design has been kept minimalistic throughout and features shades of blue since the colour is very easy on the eyes. The colour blue also connects with the waves in the landing page which in a way represents the working of the app. Fast and smooth. 
 
 
