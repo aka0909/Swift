@@ -56,6 +56,12 @@ https://drive.google.com/file/d/1UE6XbprO2dDezIGhHFjJenxesT4sVcAC/view?usp=shari
    - Basic functionalities of mute,unmute,switch video on or off, end whole meet
    - Invite by sharing the room link or send a mail invite just as easily!
    - Responsive and easy to the eyes UI
+ 
+ ## Important note
+I am letting the interval for health reminder stay 2 mins the code so it is easy to see that feature while testing. If you would like to change that interval: 
+- Go to the "room.ejs" file
+- Go to the bottom script tag for health reminder, and in the setInterval function change the "120000" ms to an interval of your choice.
+
    
 ## Layout and flow of the application
 ![6c2b811c548f4305bb7e03d9707efb88-0001](https://user-images.githubusercontent.com/65956313/125353987-e14a6400-e380-11eb-814a-2e30cc51a612.jpg)
