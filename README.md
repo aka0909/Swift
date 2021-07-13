@@ -97,4 +97,9 @@ I am letting the interval for health reminder stay 2 mins the code so it is easy
 ## Thought behind the UI
 I wanted the UI to be simple and eye pleasing especially since this was a video calling app which meant the user was going to be spending a lot of time in front of the screen. This is why the design has been kept minimalistic throughout and features shades of blue since the colour is very easy on the eyes. The colour blue also connects with the waves in the landing page which in a way represents the working of the app. Fast and smooth. 
 
+## What's next for the app?
+- Make the health alert feature smart. To not give an alert when the user is presenting or is active.
+- Make the app hands free with the help of AI. The app will understand to mute or switch video off from the gesture of the user
+- Add a login system and store rooms and meet chats permanently along with the ability to delete rooms
+
 
