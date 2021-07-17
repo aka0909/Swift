@@ -89,7 +89,7 @@ I am letting the interval for health reminder stay 2 mins the code so it is easy
      - Develop a rudimentary idea of what features I wanted to include in the application
    - **Sprint 1:** The goal was to make a minimum viable product along with very basic but important features such as mute/unmute, switch video on/off, leave room, copy room          link to clipboard and start working on a chat feature
    - **Sprint 2:** On acheiving most targets in the previous sprint I went on to integrate all of them in a good UI, add a dark and light mode feature, and started thinking and        implementing more complex features in the app
-   - **Sprint 3:** Built in more complex features into the app such as share screen, record and download video, collaborative whiteboard and icebreaker and further improved the        UI
+   - **Sprint 3:** Built in more complex features into the app such as share screen, record and download video, collaborative whiteboard and icebreaker and further improved the        UI. The clear whiteboard has not been kept collaborative so that users in the meet do not miss out on something important if a user erases the whole board without warning. An alert is sent to all users instead to wrap up the current discussion and clear the boards from their ends.
    - **Sprint 4:** Added a simple notes taker feature and attempted to incorporate the Adopt feature. Added the health alerts feature into the app, after a talk with my parents and from personal experience on how one loses track of important things while sitting in front of screen for long such as, drinking water or getting up and stretching a bit which are small but very important things for health in the long run.  
    - I used to log my work in the sheet below Sprint-wise. At the starting of each week we had a group mentor call and one-one sessions as well which served as sprint meets and      I used to incorporate the suggestions of my mentors in my work.
      https://docs.google.com/spreadsheets/d/1QoKGWlqi-IsqC-wLYgVI5jm2G5WYAGnrwI3aXgPOc1Q/edit?usp=sharing
@@ -101,5 +101,9 @@ I wanted the UI to be simple and eye pleasing especially since this was a video 
 - Make the health alert feature smart. To not give an alert when the user is presenting or is active.
 - Make the app hands free with the help of AI. The app will understand to mute or switch video off from the gesture of the user
 - Add a login system and store rooms and meet chats permanently along with the ability to delete rooms
+- Send emojis and files via chat
+- Find a way of removing local peer stream on disconnect without having to reload page. 
+- Make further improvements in UI
+- Improve Share Screen
 
 
