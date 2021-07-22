@@ -104,6 +104,5 @@ I wanted the UI to be simple and eye pleasing especially since this was a video 
 - Send emojis and files via chat
 - Find a way of removing local peer stream on disconnect without having to reload page. 
 - Make further improvements in UI
-- Improve Share Screen
 
 
